@@ -1,0 +1,71 @@
+.custom-test-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150vh;
+  }
+  
+  
+  .custom-form {
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .custom-select {
+    width: 100%;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding-bottom: 0px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  textarea.form-control {
+    resize: vertical;
+  }
+  
+
+  .test-requirement{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-left: 10px;
+  }
+  .test-requirement-input{
+      margin-right: 10px;
+  }
+
+  .btn{
+    margin-left: 20px;
+    font-size: 15px;
+  }
+
+  .test-requirement-actions{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+
+  .test-requirement-actions-input{
+    color: #000;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    border: none;
+    justify-content: 'space-evenly';
+    width: 200px;
+    padding-top:5px;
+    align-items: center;
+    padding-left: 35px;
+  }
+

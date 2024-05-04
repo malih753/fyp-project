@@ -1,0 +1,24 @@
+.about-div-1 {
+  max-width: 1000px;
+  margin: 12px auto;
+  padding: 50px 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: blueviolet;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding-top: 50px;
+  }
+  
+  .text-justify {
+    text-align: justify;
+  }
+
+  h4.text-center {
+    text-align: center;
+  }
+}

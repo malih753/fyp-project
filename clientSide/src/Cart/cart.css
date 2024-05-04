@@ -1,0 +1,310 @@
+.cart-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f4f5f7;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding-top: 20px;
+    height: 130px;
+    top: 0;
+    width: 100%;
+    z-index: 999; 
+  }
+  
+  .cart-heading h2 {
+    margin-bottom: 30px;
+    margin-left: 250px;
+    color: black;
+    text-align: left;
+    margin-top: 50px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  
+  .stepper {
+    display: flex;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  
+  .stepper-button {
+    color: black;
+    border: none;
+    margin-right:40px;
+    display: flex;
+    align-items: center;
+  }
+  
+ 
+  .stepper-button span{
+     padding-top: 20px;
+     cursor: pointer;
+  }
+
+  /* .stepper-button span:hover{
+     background-color: #f4f5f7;
+     color: black;
+     border: none;
+     padding: 10px 20px;
+     margin-right: 10px;
+     display: flex;
+     align-items: center;
+     cursor: pointer;
+  } */
+
+  .main-d{
+    /* background-color: #f4f5f7; */
+    height: 1000px;
+    margin-left: 200px;
+    width: 1300px;
+    justify-items: center;
+    align-items: center;
+    /* padding-top: 20px; */
+    margin-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    /* border: 4px solid yellow; */
+  }
+
+
+ .left-div{
+    /* background: #000; */
+    height: 50px;
+    width: 150px;
+/*     border: 5px solid rgb(128, 30, 0); */
+ }
+ .left-one{
+    margin-top: 30px;
+      width: 95%;
+      height: 120px;
+      margin-left: 10px;
+      background-color: #f4f5f7;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      border-radius: 10px;
+      margin-left: 10px;
+      display: block;
+      flex-direction: column;
+      /* border: 5px solid rgb(128, 30, 0); */
+ }
+.left-one h3{
+    padding-left: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    padding-top: 10px;
+}
+
+.left-one p{
+    padding-left: 20px;
+}
+ .left-two{
+    margin-top: 30px;
+      width: 95%;
+      height: 220px;
+      margin-left: 10px;
+      background-color: #f4f5f7;
+      /* background-color: white; */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding-bottom: 10px;
+      margin-left: 15px;
+      padding-top: 10px;
+      display: block;
+      flex-direction: column;
+      margin-bottom: 40px;
+ }
+
+.two-div-left{
+    background-color: white;
+    border-radius: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    margin-top: 5px;
+}
+.two-div-left img{
+     border: none;
+     border-radius: 50px;
+}
+.two-div-right{
+    display: flex;
+    justify-content: space-evenly;
+   
+}
+
+.two-div-left-text h5{
+    padding-top: 10px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+ .left-three{
+    margin-top: 30px;
+      width: 95%;
+      height: 300px;
+      margin-left: 10px;
+      /* background-color: white; */
+      border-radius: 10px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding-bottom: 20px;
+      margin-left: 15px;
+      padding-top: 10px;
+      display: block;
+      flex-direction: column;
+ }
+
+ .left-three h5{
+    padding-left:20px ;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+ }
+ .left-three{
+    display: block;
+    flex-direction: column;
+    margin-top: 10px;
+    /* background-color: #f4f5f7; */
+ }
+.visit-lab  {
+    width: 95%;
+    height: 120px;
+    padding-top: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.home-service{
+    width: 95%;
+    height: 120px;
+    padding-top: 20px;
+    margin-top: 10px;
+    background-color: white;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+     
+}
+
+ .right-div{
+    background-color: #f4f5f7;
+    height: 1000px;
+    width: 80%;
+    /* border: 2px solid black; */
+ }
+
+.booking-details{
+    display: block;
+}
+.booking-details h5{
+    padding-left: 20px;
+    padding-top: 30px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.booking-details p{
+    padding-left: 20px;
+    
+}
+
+.form {
+    display: flex;
+    margin-left: 20px;
+}
+
+
+.name input  {
+    width: 320px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+.name h5 {
+    margin-top: 10px;
+    margin-left: 25px;
+    
+   }
+.number input {
+    width: 320px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+.number h5 {
+    margin-top: 10px;
+    margin-left: 25px;
+    
+   }
+
+.option{
+    width: 320px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+.email {
+    margin-left: 25px;
+    padding-top: 5px;
+
+}
+
+.email input {
+    width: 320px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+.email h5{
+    margin-left: 25px;
+    padding-top: 5px;
+
+}
+.address{
+    display: flex;
+    margin-left: 40px;
+}
+
+.address-one input {
+    width: 330px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    margin-right: 10px;
+} 
+
+.address-two{
+    margin-left: 25px;
+}
+
+.address-two input {
+    width: 330px;
+    height: 40px;
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    margin-right: 10px;
+    margin-left: 25px;
+}
+
+.address-two h5{
+    margin-left: 25px;
+    padding-top: 5px;
+}
+
+.additional {
+    margin-left: 40px;
+    
+
+}

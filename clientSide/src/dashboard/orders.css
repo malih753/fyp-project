@@ -1,0 +1,39 @@
+
+
+.orders-main{
+    margin-top: 30px;
+    height: 100vh;
+    padding-right: 20px;
+    background-color: #f4f5f7;
+    width: 100%;
+    padding-top: 50px;
+   
+
+
+    /*  */
+    /* margin-top: 20px;
+   height: 100vh;
+  
+   margin-left: 300px;
+  
+   padding-top: 50px;
+   padding-left: 20px; */
+   /* background-color: #f4f5f7;
+   color: black;
+   width:100%;
+   margin-left: 100px; */
+   /* width:81%;
+    */
+}
+
+.order-heading{
+   
+    background-color: white;
+    border-radius: 10px;
+    height: 100px;
+}
+.order-heading h3, p{
+    padding-left: 10px;
+    padding-top: 10px;
+
+}

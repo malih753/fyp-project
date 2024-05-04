@@ -1,0 +1,149 @@
+
+.homes-order{
+    background-color: rgba(0, 0, 0, 0.05) ;
+    width: 900px;
+    height: 700px;
+    justify-content: center;
+    margin-left: 300px;
+    margin-top: 50px;
+  
+    
+}
+
+.text-headings{
+    display: block;
+     margin-top: 60px; 
+     justify-content: center;
+     text-align: justify;
+     padding-left: 20px;
+     
+}
+.text-headings h3{
+  padding-top: 40px;
+    font-size: 30px;
+    font-weight: 600px;
+    padding-left: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.text-headings p{
+    font-size: 20px;
+    padding-left: 15px;
+    padding-right: 10px;
+}
+
+.cards{
+    margin-top: 60px;
+    width: 800px;
+    height: 450px;
+    margin-left: 50px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+   /*
+    display: flex;
+    justify-content: space-evenly;
+   */
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+
+.cards_details {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+    border: 10px sold rgb(22, 21, 21);
+}
+
+.cards_details p{
+     padding-left: 30px;
+}
+
+.cards_details h5{
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.view-btns{
+      font-size: 20px;
+      margin-left: 160px;
+      border-radius: 4%;
+      background-color: #75DBD0;
+      outline: auto;
+      padding: 20px 10px; 
+      outline: none;
+      
+}
+
+.view-btns:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  .view-btns:hover {
+    background-color: #75DBD0;
+  }
+  
+
+  img{
+    border-radius:10% 10% 10% 10% ;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .img_details{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      padding-left: 20px;
+  }
+  .img_details p, h4{
+    padding-left: 30px;
+  }
+
+  .heading_img{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 20px;
+  }
+  .heading_img h4{
+    padding-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .task_details
+  {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-right: 20px;
+    padding-top: -10px;
+    
+  }
+     .task_details h6{
+        font-weight: bold;
+     }
+  .status_check{
+    display: flex;
+    flex-direction: row;   
+    padding-left: 30px;
+    padding-right: 20px;
+  }
+
+.status_check h6{
+        padding-left: 30px;
+        padding-top: 35px;
+        font-size: 20px;
+        font-weight: bold;
+}
+
+  .products{
+    display: flex;
+    flex-direction: row;
+    margin-left: 320px;
+    padding-top: 35px;
+    
+  }
+
+ 

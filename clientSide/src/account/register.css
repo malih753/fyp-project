@@ -1,0 +1,109 @@
+.background-radial-gradient {
+  background-color: hsl(218, 41%, 15%);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+#radius-shape-1 {
+  height: 220px;
+  width: 220px;
+  top: -60px;
+  left: -130px;
+  background: radial-gradient(rgba(0, 0, 0, 0.05), #70dbd0);
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+#radius-shape-2 {
+  bottom: -60px;
+  right: -110px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(rgba(0, 0, 0, 0.05), #70dbd0);
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.bg-glass {
+  background-color: hsla(0, 0%, 100%, 0.9) !important;
+  backdrop-filter: saturate(200%) blur(25px);
+}
+.btn-primary {
+  background-color: #75dbd0;
+  /* Other styling for primary buttons */
+}
+.main {
+  background-color: rgba(0, 0, 0, 0.05);
+  width: 90%; /* Adjusted width */
+  max-width: 1000px; /* Added maximum width */
+  margin: 12px auto;
+  padding: 50px 25px;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 30px 15px; /* Adjusted padding for smaller devices */
+  }
+
+  #radius-shape-1,
+  #radius-shape-2 {
+    display: none; /* Hide the radial shapes on smaller devices */
+  }
+}
+
+@media (max-width: 576px) {
+  .main {
+    padding: 20px 10px; /* Further adjusted padding for even smaller devices */
+  }
+}
+
+/* Additional CSS for form elements */
+
+.form-outline {
+  position: relative;
+}
+
+.form-outline input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #70dbd0;
+  background-color: transparent;
+  color: #fff;
+}
+
+.form-outline label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+  color: #70dbd0;
+}
+
+.form-outline input:focus + label,
+.form-outline input:valid + label {
+  transform: translateY(-20px);
+  font-size: 12px;
+  color: #70dbd0;
+}
+
+.btn-primary {
+  background-color: #70dbd0;
+  border-color: #70dbd0;
+}
+
+.btn-primary:hover {
+  background-color: #5cb1a8;
+  border-color: #5cb1a8;
+}
+
+.btn-primary:focus {
+  box-shadow: 0 0 0 0.25rem rgba(112, 219, 208, 0.5);
+}
+
+.btn-link.btn-floating {
+  color: #70dbd0;
+}
+
+.btn-link.btn-floating:hover {
+  color: #5cb1a8;
+}

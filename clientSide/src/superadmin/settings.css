@@ -1,0 +1,89 @@
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+}
+.setting-container{
+    display:flex; 
+}
+.setting-main{
+    width: 100%;
+    background-color: #f4f5f7;  
+    background: #000;
+}
+.setting-sidebar{
+    color: black;   
+    height: 100vh;
+    margin-left: 40px;
+    width:300px;
+    transition: all 0.5s;
+    margin-top: 70px;
+}
+.setting-top_sections{
+    display: flex;
+    align-items:center;
+    margin-left: 100px;
+    color: black;
+    
+}
+
+.sidebar-icon{
+    margin-bottom: -20px;
+    font-size: 30px;
+    
+}
+
+.sidebar-link{
+    color: black;
+    transition: all 0.5s;
+    padding-left: 20px;
+
+
+}
+.sidebar-link h4{
+    margin-top: -20px;
+    padding-left: 50px;
+    padding-top: 5px;
+
+}
+.sidebar-link:hover{
+    color: #000; 
+    transition: all 0.5s;
+}
+/*
+setting-bars
+
+.barss{
+    display: flex;
+    font-size: 25px;
+    
+}
+.links{
+    display: flex;
+    color: #000; 
+    padding: 10px 50px;
+    justify-content: space-around;
+    gap: -10px;
+    transition: all 0.5s;
+}
+.links:hover{
+    color: #000; 
+    transition: all 0.5s;
+}
+.active{
+    color: #000;
+    
+}
+ .link_texts{
+    font-size: 20px;
+    display: flex; 
+    justify-content: space-between;
+}
+
+
+.icons-class{
+    /* margin-left: 20px; 
+}
+
+*/
