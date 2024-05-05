@@ -35,7 +35,7 @@ const Cart = () => {
 
   const handleGender =(e)=>{
     e.preventDefault()
-    setGender(e.target.value)
+    setGenderOptions(e.target.value)
   }
  
 
@@ -140,7 +140,7 @@ const Cart = () => {
               <h5>Name</h5>
               <input type="text" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)} />
               <h5>Gender</h5>
-              <select className='option' value={genderOptions} onChange={(e) =>setGenderOptions(e.target.value)}>
+              <select className='option' value={genderOptions} onClick={handleGender}>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
