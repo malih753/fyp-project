@@ -11,16 +11,48 @@ import { FaDotCircle } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { PiCircleThin } from "react-icons/pi";
 import { MDBListGroup, MDBListGroupItem } from 'mdb-react-ui-kit';
-
+import {axios} from 'axios'
 import img from './/../assets/1.png'
 import './cart.css';
 
 const Cart = () => {
-  const [selectedOption, setSelectedOption] = useState('');
+  // const [selectedOption, setSelectedOption] = useState('');
+  const [age, setAge] = useState('')
+  const [gender, setGender] = useState('')
+  const [genderOptions, setGenderOptions] = useState(["male", "female", "other"])
+  const [namee, setNamee] = useState('')
+  const [phone, setPhone] = useState('')
+  const [address, setAddress] = useState('')
+  const [email, setEmail] = useState('')
+  const [state, setState] = useState('')
+  const [city, setCity] = useState('')
+  const [country, setCountry] = useState('')
+  const [street, setStreet] = useState('')
+  const [zip, setZip] = useState('')
 
-  const handleOptionClick = (option) => {
-    setSelectedOption(option);
-  };
+  const handleSubmit= (e)=>{
+    e.preventDefault()
+    const payload=
+    {
+    namee,
+    age, 
+    gender,
+    address,
+    city,
+    phone,
+    zip,
+    state,
+    street,
+    country,
+    email
+    }
+    axios.post('http://localhost:4000/api/v1/info',{payload}).then(res=>{console.log(res)})
+    }
+
+  const handleGender =(e)=>{
+    e.preventDefault()
+    setGender(e.target.value)
+  }
   return (
     <div>
       <ProfileHeader />
@@ -82,27 +114,28 @@ const Cart = () => {
             <h5>Booking Details</h5>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ab.</p>
           </div>
-          <form action="" className='form '>
+          <form action="" className='form' onSubmit={handleSubmit}>
             <div className='name'>
               <h5>Name</h5>
-              <input type="text" placeholder="Enter Name" />
+              <input type="text" value={namee} onChange={(e)=>setNamee(e.target.value)} placeholder="Enter Name" />
               <h5>Gender</h5>
-              <select className='option' >
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-                <option value="other">Other</option>
+              <select className='option' value={gender} onChange={handleGender} >
+                <option value="">Select Gender</option>
+               {genderOptions.map(option=>(
+                <option key={option.value} value={option.value}>{option.value}</option>
+               ))}
               </select>
             </div>
             <div className='number'>
               <h5>Age</h5>
-              <input type="text" placeholder="Enter Age" />
+              <input type="text" value={age} onChange={(e)=>setAge(e.target.value)} placeholder="Enter Age" />
               <h5>Phone No.</h5>
-              <input type="text" placeholder="Enter Phone No." style={{ paddingBottom: "10px" }} />
+              <input type="text" value={phone} onChange={(e)=>setPhone(e.target.value)} placeholder="Enter Phone No." style={{ paddingBottom: "10px" }} />
             </div>
           </form>
           <div className='email'>
             <h5>Email</h5>
-            <input type="text" placeholder="Enter email" />
+            <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Enter email" />
           </div>
 
           {/* Address */}
@@ -110,20 +143,22 @@ const Cart = () => {
           <form action="" className='address '>
             <div className='address-one'>
               <h5>Street</h5>
-              <input type="text" placeholder="Enter street name" />
+              <input type="text" value={street} onChange={(e)=>setStreet(e.target.value)} placeholder="Enter street name" />
+              <h5>Address</h5>
+              <input type="text" value={address} onChange={(e)=>setAddress(e.target.value)} value={street} onChange={(e)=>setStreet(e.target.value)} placeholder="Enter street name" />
               <h5>City</h5>
-              <input type="text" placeholder="Enter city name" />
+              <input type="text" value={city} onChange={(e)=>setCity(e.target.value)} placeholder="Enter city name" />
             </div>
             <div className='address-one'>
               <h5>State</h5>
-              <input type="text" placeholder="Enter your state name" />
+              <input type="text" value={state} onChange={(e)=>setState(e.target.value)} placeholder="Enter your state name" />
               <h5>Country </h5>
-              <input type="text" placeholder="Enter country name" style={{ paddingBottom: "10px" }} />
+              <input type="text" value={country} onChange={(e)=>setCountry(e.target.value)} placeholder="Enter country name" style={{ paddingBottom: "10px" }} />
             </div>
           </form>
           <div className='address-two'>
             <h5>Zip</h5>
-            <input type="text" placeholder="Enter zip code" />
+            <input type="text" value={zip} onChange={(e)=>setZip(e.target.value)} placeholder="Enter zip code" />
           </div>
           { /* Additional Notes */}
 
