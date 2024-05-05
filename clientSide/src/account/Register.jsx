@@ -14,22 +14,24 @@ const Register = () => {
 
   // Function to handle form submission
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
+    e.preventDefault();
+    console.log('we are on register') // Prevent default form submission behavior
 
     try {
       // Make API request to sign up endpoint
-      const response = await axios.post('http://localhost:4000/api/v1/signUp', {
+      const payloadData={
         firstName,
         lastName,
         email,
         password
-      });
+      }
+      const response = await axios.post('http://localhost:4000/api/v1/signUp', payloadData);
 
       console.log(response.data); 
       // Log response data
       // You can handle success response here, such as redirecting to another page or showing a success message
-      if(response.data?.success){
-          navigate("/login");
+      if(response.data){
+          navigation("/login");
       }
     } catch (error) {
       console.error('Error signing up:', error);
@@ -86,7 +88,7 @@ const Register = () => {
                     <label className="form-label" htmlFor="form3Example4">Password</label>
                   </div>
 
-                  <button type="submit" className="btn btn-primary btn-block mb-4" style={{ backgroundColor: "#75DBD0", marginLeft: "-3px" }}>
+                  <button type="submit" className="btn btn-primary btn-block mb-4" style={{ backgroundColor: "#75DBD0", marginLeft: "-3px" }} >
                     Sign Up
                   </button>
 
