@@ -1,27 +1,46 @@
-import React from 'react';
-import html2canvas from 'html2canvas';
+import React, { useState } from 'react';
+import axios from 'axios';
 import jsPDF from 'jspdf';
+import pdf from '../assets/pdf.png'
 
-const downloadPDF = () => {
-  const input = document.getElementById('pdf-content');
+const  DownloadPDFButton = () => {
+  const [data, setData] = useState([]);
 
-  html2canvas(input).then((canvas) => {
-    const imgData = canvas.toDataURL('image/png');
-    const pdf = new jsPDF();
-    pdf.addImage(imgData, 'PNG', 0, 0);
-    pdf.save('download.pdf');
-  });
-};
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost:4000/api/v1/getInfo');
+      setData(response.data);
+      saveToPDF();
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
 
-const DownloadPDFButton = () => {
+  const saveToPDF = () => {
+    const doc = new jsPDF();
+  
+    doc.setFontSize(12);
+    doc.text('Data from API', 20, 20);
+    doc.setLineWidth(0.5);
+    doc.line(20, 25, 190, 25);
+  
+    let y = 35;
+    data.forEach((item, index) => {
+      doc.text(`${index + 1}. Name: ${item.name}`, 20, y);
+      doc.text(`   Email: ${item.email}`, 20, y + 5);
+      doc.text(`   State: ${item.state}`, 20, y + 10);
+      y += 20; // Increase the vertical position for the next item
+    });
+  
+    doc.save('data.pdf');
+  };
+  
+  
+
   return (
-    <div>
-      <button onClick={downloadPDF}>Download as PDF</button>
-      <div id="pdf-content">
-        {/* Content you want to convert to PDF */}
-        <h1>Hello, World!</h1>
-        <p>This is the content you want to download as a PDF.</p>
-      </div>
+    <div className='left-four'>
+      <img src={pdf}  onClick={fetchData} style={{width:100,height:80,cursor:'pointer'}}   />
+       
     </div>
   );
 };

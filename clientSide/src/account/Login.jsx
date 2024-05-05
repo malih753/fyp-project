@@ -13,10 +13,11 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/login', {
+      const payloadData={
         email,
         password
-      });
+      }
+      const response = await axios.post('http://localhost:4000/api/v1/login',payloadData );
       console.log(response.data);
       if(response.data?.success){
         navigation('/home');
