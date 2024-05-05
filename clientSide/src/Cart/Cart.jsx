@@ -17,56 +17,27 @@ import './cart.css';
 import DownloadPDFButton from '../pages/DownloadPdfBtn';
 
 const Cart = () => {
-<<<<<<< HEAD
+ 
   // const [selectedOption, setSelectedOption] = useState('');
   const [age, setAge] = useState('')
   const [gender, setGender] = useState('')
   const [genderOptions, setGenderOptions] = useState(["male", "female", "other"])
-  const [namee, setNamee] = useState('')
+  const [name, setName] = useState('')
   const [phone, setPhone] = useState('')
-  const [address, setAddress] = useState('')
+  // const [address, setAddress] = useState('')
   const [email, setEmail] = useState('')
   const [state, setState] = useState('')
   const [city, setCity] = useState('')
   const [country, setCountry] = useState('')
   const [street, setStreet] = useState('')
   const [zip, setZip] = useState('')
-
-  const handleSubmit= (e)=>{
-    e.preventDefault()
-    const payload=
-    {
-    namee,
-    age, 
-    gender,
-    address,
-    city,
-    phone,
-    zip,
-    state,
-    street,
-    country,
-    email
-    }
-    axios.post('http://localhost:4000/api/v1/info',{payload}).then(res=>{console.log(res)})
-    }
+ 
 
   const handleGender =(e)=>{
     e.preventDefault()
     setGender(e.target.value)
   }
-=======
-  const [selectedOption, setSelectedOption] = useState('');
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
-  const [city, setCity] = useState('');
-  const [email, setEmail] = useState('');
-  const [state, setState] = useState('');
-  const [country, setCountry] = useState('');
-  const [street, setStreet] = useState('');
-  const [zipcode, setZipCode] = useState('');
-  const [phone_no,setPhone]=useState('');
-  const [gender,setGender]=useState('');
+ 
 
 
   const handleSubmit = async (e,req,res) => {
@@ -101,7 +72,7 @@ const Cart = () => {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
->>>>>>> 1deb1230341a44b6a88ac0be622b4803c08d4735
+ 
   return (
     <div>
       <ProfileHeader />
@@ -164,50 +135,27 @@ const Cart = () => {
             <h5>Booking Details</h5>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ab.</p>
           </div>
-<<<<<<< HEAD
-          <form action="" className='form' onSubmit={handleSubmit}>
-            <div className='name'>
-              <h5>Name</h5>
-              <input type="text" value={namee} onChange={(e)=>setNamee(e.target.value)} placeholder="Enter Name" />
-              <h5>Gender</h5>
-              <select className='option' value={gender} onChange={handleGender} >
-                <option value="">Select Gender</option>
-               {genderOptions.map(option=>(
-                <option key={option.value} value={option.value}>{option.value}</option>
-               ))}
-=======
           <form action="submit" className='form ' >
             <div className='name'>
               <h5>Name</h5>
               <input type="text" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)} />
               <h5>Gender</h5>
-              <select className='option' value={gender} onChange={(e) =>setGender(e.target.value)}>
+              <select className='option' value={genderOptions} onChange={(e) =>setGenderOptions(e.target.value)}>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
->>>>>>> 1deb1230341a44b6a88ac0be622b4803c08d4735
               </select>
             </div>
             <div className='number'>
               <h5>Age</h5>
-<<<<<<< HEAD
-              <input type="text" value={age} onChange={(e)=>setAge(e.target.value)} placeholder="Enter Age" />
-              <h5>Phone No.</h5>
-              <input type="text" value={phone} onChange={(e)=>setPhone(e.target.value)} placeholder="Enter Phone No." style={{ paddingBottom: "10px" }} />
-=======
               <input type="text" placeholder="Enter Age" value={ age} onChange={(e) => setAge(e.target.value)}/>
               <h5>Phone No.</h5>
-              <input type="text" placeholder="Enter Phone No." style={{ paddingBottom: "10px" }} value={phone_no} onChange={(e) => setPhone(e.target.value)}/>
->>>>>>> 1deb1230341a44b6a88ac0be622b4803c08d4735
+              <input type="text" placeholder="Enter Phone No." style={{ paddingBottom: "10px" }} value={phone} onChange={(e) => setPhone(e.target.value)}/>
             </div>
           </form>
           <div className='email'>
             <h5>Email</h5>
-<<<<<<< HEAD
-            <input type="text" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder="Enter email" />
-=======
             <input type="text" placeholder="Enter email" value={email} onChange={(e) => setEmail(e.target.value)}/>
->>>>>>> 1deb1230341a44b6a88ac0be622b4803c08d4735
           </div>
 
           {/* Address */}
@@ -215,19 +163,6 @@ const Cart = () => {
           <form action="" className='address '>
             <div className='address-one'>
               <h5>Street</h5>
-<<<<<<< HEAD
-              <input type="text" value={street} onChange={(e)=>setStreet(e.target.value)} placeholder="Enter street name" />
-              <h5>Address</h5>
-              <input type="text" value={address} onChange={(e)=>setAddress(e.target.value)} value={street} onChange={(e)=>setStreet(e.target.value)} placeholder="Enter street name" />
-              <h5>City</h5>
-              <input type="text" value={city} onChange={(e)=>setCity(e.target.value)} placeholder="Enter city name" />
-            </div>
-            <div className='address-one'>
-              <h5>State</h5>
-              <input type="text" value={state} onChange={(e)=>setState(e.target.value)} placeholder="Enter your state name" />
-              <h5>Country </h5>
-              <input type="text" value={country} onChange={(e)=>setCountry(e.target.value)} placeholder="Enter country name" style={{ paddingBottom: "10px" }} />
-=======
               <input type="text" placeholder="Enter street name" value={street} onChange={(e) => setStreet(e.target.value)}/>
               <h5>City</h5>
               <input type="text" placeholder="Enter city name" value={city} onChange={(e) =>setCity(e.target.value)}/>
@@ -237,16 +172,11 @@ const Cart = () => {
               <input type="text" placeholder="Enter your state name" value={state} onChange={(e) =>setState(e.target.value)}/>
               <h5>Country </h5>
               <input type="text" placeholder="Enter country name" style={{ paddingBottom: "10px" }} value={country} onChange={(e) => setCountry(e.target.value)}/>
->>>>>>> 1deb1230341a44b6a88ac0be622b4803c08d4735
             </div>
           </form>
           <div className='address-two'>
             <h5>Zip</h5>
-<<<<<<< HEAD
-            <input type="text" value={zip} onChange={(e)=>setZip(e.target.value)} placeholder="Enter zip code" />
-=======
-            <input type="text" placeholder="Enter zip code" value={zipcode} onChange={(e) => setZipCode(e.target.value)}/>
->>>>>>> 1deb1230341a44b6a88ac0be622b4803c08d4735
+            <input type="text" placeholder="Enter zip code" value={zip} onChange={(e) =>  setZip(e.target.value)}/>
           </div>
           { /* Additional Notes */}
 

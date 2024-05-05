@@ -4,12 +4,13 @@ const router = express.Router();
 router.use(express.json());
 
 const catchAsyncFunction = require('../middlewares/catchAsyncFun')
+const InfoModel = require('../model/Infor');
 let app = express();
 let bodyParser = require("body-parser");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-const InfoModel = require('../model/Infor');
+
 
 exports.Info = catchAsyncFunction(async (req, res) => {
     console.log("info data")
@@ -58,5 +59,19 @@ exports.Info = catchAsyncFunction(async (req, res) => {
         res.status(500).send({ message: "Internal server error", error: error.message });
     }
 });
+
+exports.getInfo = catchAsyncFunction(async (req,res)=>{
+    try{
+        const userId = req.InfoModel?._id;  
+        const user = await InfoModel.findById(userId);
+     
+        res.json(user);
+
+    }catch (e){
+
+        res.status(500).json({message:e.message});
+        console.log('error',e);
+    }
+})
 
 
