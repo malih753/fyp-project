@@ -163,6 +163,20 @@
     margin-top: 10px;
     /* background-color: #f4f5f7; */
  }
+ .left-four{
+    margin-top: 30px;
+    width: 95%;
+    height: 100px;
+    margin-left: 10px;
+    /* background-color: white; */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-bottom: 20px;
+    margin-left: 15px;
+    padding-top: 10px;
+    display: block;
+    flex-direction: column;
+ }
 .visit-lab  {
     width: 95%;
     height: 120px;

@@ -11,23 +11,33 @@ import { FaDotCircle } from "react-icons/fa";
 import { FaHome } from "react-icons/fa";
 import { PiCircleThin } from "react-icons/pi";
 import { MDBListGroup, MDBListGroupItem } from 'mdb-react-ui-kit';
-
+import {axios} from 'axios'
 import img from './/../assets/1.png'
 import './cart.css';
 import DownloadPDFButton from '../pages/DownloadPdfBtn';
 
 const Cart = () => {
-  const [selectedOption, setSelectedOption] = useState('');
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
-  const [city, setCity] = useState('');
-  const [email, setEmail] = useState('');
-  const [state, setState] = useState('');
-  const [country, setCountry] = useState('');
-  const [street, setStreet] = useState('');
-  const [zipcode, setZipCode] = useState('');
-  const [phone_no,setPhone]=useState('');
-  const [gender,setGender]=useState('');
+ 
+  // const [selectedOption, setSelectedOption] = useState('');
+  const [age, setAge] = useState('')
+  const [gender, setGender] = useState('')
+  const [genderOptions, setGenderOptions] = useState(["male", "female", "other"])
+  const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
+  // const [address, setAddress] = useState('')
+  const [email, setEmail] = useState('')
+  const [state, setState] = useState('')
+  const [city, setCity] = useState('')
+  const [country, setCountry] = useState('')
+  const [street, setStreet] = useState('')
+  const [zip, setZip] = useState('')
+ 
+
+  const handleGender =(e)=>{
+    e.preventDefault()
+    setGenderOptions(e.target.value)
+  }
+ 
 
 
   const handleSubmit = async (e,req,res) => {
@@ -62,6 +72,7 @@ const Cart = () => {
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
+ 
   return (
     <div>
       <ProfileHeader />
@@ -129,7 +140,7 @@ const Cart = () => {
               <h5>Name</h5>
               <input type="text" placeholder="Enter Name" value={name} onChange={(e) => setName(e.target.value)} />
               <h5>Gender</h5>
-              <select className='option' value={gender} onChange={(e) =>setGender(e.target.value)}>
+              <select className='option' value={genderOptions} onClick={handleGender}>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option>
@@ -139,7 +150,7 @@ const Cart = () => {
               <h5>Age</h5>
               <input type="text" placeholder="Enter Age" value={ age} onChange={(e) => setAge(e.target.value)}/>
               <h5>Phone No.</h5>
-              <input type="text" placeholder="Enter Phone No." style={{ paddingBottom: "10px" }} value={phone_no} onChange={(e) => setPhone(e.target.value)}/>
+              <input type="text" placeholder="Enter Phone No." style={{ paddingBottom: "10px" }} value={phone} onChange={(e) => setPhone(e.target.value)}/>
             </div>
           </form>
           <div className='email'>
@@ -165,7 +176,7 @@ const Cart = () => {
           </form>
           <div className='address-two'>
             <h5>Zip</h5>
-            <input type="text" placeholder="Enter zip code" value={zipcode} onChange={(e) => setZipCode(e.target.value)}/>
+            <input type="text" placeholder="Enter zip code" value={zip} onChange={(e) =>  setZip(e.target.value)}/>
           </div>
           { /* Additional Notes */}
 
@@ -186,6 +197,7 @@ const Cart = () => {
             </MDBListGroup>
           </div>
           <div>
+            <button className="btn btn-block" type="submit" style={{ width: "700px", marginTop: "10px", backgroundColor: "black", color: "white" }} onSubmit={handleSubmit}>
             <button className="btn btn-block" type="submit" style={{ width: "700px", marginTop: "10px", backgroundColor: "black", color: "white" }} onSubmit={handleSubmit}>
               Place Order
             </button>

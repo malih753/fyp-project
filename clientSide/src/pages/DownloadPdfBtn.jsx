@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import jsPDF from 'jspdf';
-import pdf from '../assets/download.png'
+import pdf from '../assets/pdf.png'
 
 const  DownloadPDFButton = () => {
   const [data, setData] = useState([]);
