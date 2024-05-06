@@ -13,9 +13,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 exports.Info = catchAsyncFunction(async (req, res) => {
-    console.log("info data")
+
     try {
-        console.log("log request", req.body);
+
         const { 
             name, 
             age,
@@ -28,16 +28,7 @@ exports.Info = catchAsyncFunction(async (req, res) => {
             country,
             zipcode, 
            } = req.body;
-           console.log(name, 
-            age,
-            gender,
-            phone_no,
-            email,
-            street,
-            state,
-            city,
-            country,
-            zipcode )
+      
         // Create user in MongoDB
         const newInfo = await InfoModel.create({
             name, 
