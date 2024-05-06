@@ -63,10 +63,8 @@ const Cart = () => {
     }
   };
 
-  const handleGender = (e) => {
-    e.preventDefault()
-    setGender(e.target.value)
-  }
+
+  
   return (
     <div>
       <ProfileHeader />

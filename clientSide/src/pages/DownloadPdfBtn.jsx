@@ -3,20 +3,27 @@ import axios from 'axios';
 import jsPDF from 'jspdf';
 import pdf from '../assets/pdf.png'
 
-const  DownloadPDFButton = () => {
-  const [data, setData] = useState([]);
+
+const DownloadPDFButton = () => {
+  const [fetchedData, setFetchedData] = useState([]);
 
   const fetchData = async () => {
     try {
       const response = await axios.get('http://localhost:4000/api/v1/getInfo');
-      setData(response.data);
-      saveToPDF();
+      console.log(response.data);
+      setFetchedData(response.data);
+      saveToPDF(response.data);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
 
-  const saveToPDF = () => {
+  const saveToPDF = (data) => {
+    if (!data || (Array.isArray(data) && data.length === 0)) {
+      console.error('Error: Data is null or empty');
+      return;
+    }
+  
     const doc = new jsPDF();
   
     doc.setFontSize(12);
@@ -25,24 +32,33 @@ const  DownloadPDFButton = () => {
     doc.line(20, 25, 190, 25);
   
     let y = 35;
-    data.forEach((item, index) => {
-      doc.text(`${index + 1}. Name: ${item.name}`, 20, y);
-      doc.text(`   Email: ${item.email}`, 20, y + 5);
-      doc.text(`   State: ${item.state}`, 20, y + 10);
-      y += 20; // Increase the vertical position for the next item
-    });
+  
+    if (Array.isArray(data)) {
+      data.forEach((item, index) => {
+        doc.text(`${index + 1}. Name: ${item.name}`, 20, y);
+        doc.text(`   Email: ${item.email}`, 20, y + 5);
+        doc.text(`   State: ${item.state}`, 20, y + 10);
+        y += 20; // Increase the vertical position for the next item
+      });
+    } else {
+      // Handle non-array data types
+      doc.text(`1. Name: ${data.name}`, 20, y);
+      doc.text(`   Email: ${data.email}`, 20, y + 5);
+      doc.text(`   State: ${data.state}`, 20, y + 10);
+    }
   
     doc.save('data.pdf');
   };
   
-  
 
   return (
     <div className='left-four'>
-      <img src={pdf}  onClick={fetchData} style={{width:100,height:80,cursor:'pointer'}}   />
-       
+      <img src={pdf} onClick={fetchData} style={{ width: 100, height: 80, cursor: 'pointer' }} />
     </div>
   );
 };
+
+
+
 
 export default DownloadPDFButton;
