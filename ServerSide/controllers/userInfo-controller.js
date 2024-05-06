@@ -54,8 +54,8 @@ exports.Info = catchAsyncFunction(async (req, res) => {
 exports.getInfo = catchAsyncFunction(async (req,res)=>{
     try{
         const userId = req.InfoModel?._id;  
-        const user = await InfoModel.findById(userId);
-     
+        const user = await InfoModel.findOne(userId);
+        
         res.json(user);
 
     }catch (e){
