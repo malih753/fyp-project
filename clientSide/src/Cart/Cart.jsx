@@ -64,7 +64,7 @@ const Cart = () => {
   };
 
 
-  
+
   return (
     <div>
       <ProfileHeader />
@@ -121,7 +121,7 @@ const Cart = () => {
               <p style={{ paddingLeft: "60px", paddingBottom: "20px" }}> Lorem ipsum dolor dolor sit amet dolor sit amet.</p>
             </div>
           </div>
-          <DownloadPDFButton/>
+          <DownloadPDFButton />
         </div>
         <div className="right-div">
           <div className='booking-details'>
@@ -129,23 +129,69 @@ const Cart = () => {
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus, ab.</p>
           </div>
           <form onSubmit={handleSubmit}>
-            <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" />
-            <input type="text" name="age" value={formData.age} onChange={handleChange} placeholder="Age" />
-            <select name="gender" value={formData.gender} onChange={handleChange}>
-              <option value="">Select gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-            <input type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Address" />
-            <input type="text" name="city" value={formData.city} onChange={handleChange} placeholder="City" />
-            <input type="text" name="phone_no" value={formData.phone_no} onChange={handleChange} placeholder="Phone Number" />
-            <input type="text" name="zip" value={formData.zip} onChange={handleChange} placeholder="Zip Code" />
-            <input type="text" name="state" value={formData.state} onChange={handleChange} placeholder="State" />
-            <input type="text" name="street" value={formData.street} onChange={handleChange} placeholder="Street" />
-            <input type="text" name="country" value={formData.country} onChange={handleChange} placeholder="Country" />
-            <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" />
-            <button type="submit">Submit</button>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly', marginBottom: 30 }}>
+              <div>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>Name </span><br></br>
+                <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
+              </div>
+              <div>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>Age </span><br></br>
+                <input type="text" name="age" value={formData.age} onChange={handleChange} placeholder="Age" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
+              </div>
+
+            </div>
+            <div>
+              <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold', marginLeft: 110 }}>Select Gender</span><br></br>
+              <select name="gender" value={formData.gender} onChange={handleChange} style={{ marginLeft: 110, width: 540, height: 40, marginBottom: 30, borderColor: 'white', padding: 9, borderRadius: 10 }}>
+                <option value="">Select gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly', marginBottom: 30 }}>
+              <div>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>Address</span><br></br>
+                <input type="text" name="address" value={formData.address} onChange={handleChange} placeholder="Address" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
+              </div>
+              <div>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>City</span><br></br>
+                <input type="text" name="city" value={formData.city} onChange={handleChange} placeholder="City" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly', marginBottom: 30 }}>
+              <div>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>Phone No</span><br></br>
+                <input type="text" name="phone_no" value={formData.phone_no} onChange={handleChange} placeholder="Phone Number" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
+              </div>
+              <div>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>Zip Code</span><br></br>
+                <input type="text" name="zip" value={formData.zip} onChange={handleChange} placeholder="Zip Code" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly', marginBottom: 30 }}>
+              <div>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>City</span><br></br>
+                <input type="text" name="state" value={formData.state} onChange={handleChange} placeholder="State" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
+              </div>
+              <div>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>City</span><br></br>
+                <input type="text" name="street" value={formData.street} onChange={handleChange} placeholder="Street" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
+              </div>
+            </div>
+            <div style={{ display: 'flex', justifyContent: 'space-evenly', marginBottom: 30 }}>
+              <div>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>Country</span><br></br>
+                <input type="text" name="country" value={formData.country} onChange={handleChange} placeholder="Country" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
+              </div>
+              <div>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>Email</span><br></br>
+                <input type="email" name="email" value={formData.email} onChange={handleChange} placeholder="Email" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
+              </div>
+            </div>
+            <button type="submit" style={{
+              width: 540, marginLeft: 110,backgroundColor:'#75dbd0',borderColor:'white',padding:10,borderRadius:50,marginTop:40
+            }}>Submit</button>
           </form>
 
         </div>

@@ -2,27 +2,89 @@ import react from 'react'
 import "./labTest.css";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import {
+  MDBBtn,
+  MDBIcon,
+  MDBTooltip,
+  MDBCard,
+  MDBCardHeader,
+  MDBCardBody,
+  MDBCardTitle,
+} from "mdb-react-ui-kit";
 
 const LabTest = () => {
   return (
     <div>
     <Header/>
-    <div className='test-div-1'>
+    <div style={{marginRight:40,marginLeft:50}}>
       <h2>Lab Test</h2>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-        Aspernatur iusto possimus eveniet illum, dignissimos incidunt, porro voluptatum est unde explicabo, 
-        nulla exercitationem in? Possimus dolorum quisquam, repellendus praesentium laborum sequi?
-      </p>
-      <h2>Lab Test Addtion</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque ipsum alias,
-         ullam dolores obcaecati nisi voluptatem magni excepturi laudantium pariatur.
-      </p>
+      <div className="heading">
+            <h2>Frequently Booked Packages</h2>
+          </div>
+          <div className="row row-cols-1 row-cols-md-3 g-4">
+            <div className="col">
+              <MDBCard alignment="center">
+                <MDBCardHeader >Pakage</MDBCardHeader>
+                <MDBCardBody>
+                  <MDBCardTitle>Advance Renal Pakage</MDBCardTitle>
+                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+            <div className="col">
+              <MDBCard alignment="center">
+                <MDBCardHeader>Pakage</MDBCardHeader>
+                <MDBCardBody>
+                  <MDBCardTitle>Second Package</MDBCardTitle>
+                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+            <div className="col">
+              <MDBCard alignment="center">
+                <MDBCardHeader>Pakage</MDBCardHeader>
+                <MDBCardBody>
+                  <MDBCardTitle>Third Package</MDBCardTitle>
+                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+          </div>
+          <div className="mb-4"></div>
+          <div className="row row-cols-1 row-cols-md-3 g-4">
+            <div className="col">
+              <MDBCard alignment="center">
+                <MDBCardHeader>Pakage</MDBCardHeader>
+                <MDBCardBody>
+                  <MDBCardTitle>Fourth Package</MDBCardTitle>
+                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+            <div className="col">
+              <MDBCard alignment="center">
+                <MDBCardHeader>Pakage</MDBCardHeader>
+                <MDBCardBody>
+                  <MDBCardTitle>Fifth Package</MDBCardTitle>
+                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+
+            <div className="col">
+              <MDBCard alignment="center">
+                <MDBCardHeader>Pakage</MDBCardHeader>
+                <MDBCardBody>
+                  <MDBCardTitle>Sixth Package</MDBCardTitle>
+                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+          </div>
     
     
     </div>
-    <Footer/>
+    
     </div>
   )
 }
