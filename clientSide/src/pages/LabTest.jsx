@@ -2,6 +2,8 @@ import react from 'react'
 import "./labTest.css";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+ 
+import { useNavigate } from "react-router-dom";
 import {
   MDBBtn,
   MDBIcon,
@@ -13,6 +15,10 @@ import {
 } from "mdb-react-ui-kit";
 
 const LabTest = () => {
+  const navigation = useNavigate();
+  const handleClick = () => {
+    navigation('/cart')   ;
+  };
   return (
     <div>
     <Header/>
@@ -27,7 +33,7 @@ const LabTest = () => {
                 <MDBCardHeader >Pakage</MDBCardHeader>
                 <MDBCardBody>
                   <MDBCardTitle>Advance Renal Pakage</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                  <MDBBtn   className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
             </div>
@@ -36,7 +42,7 @@ const LabTest = () => {
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
                   <MDBCardTitle>Second Package</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                  <MDBBtn href="#" className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
             </div>
@@ -45,7 +51,7 @@ const LabTest = () => {
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
                   <MDBCardTitle>Third Package</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                  <MDBBtn href="#" className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
             </div>
@@ -57,7 +63,7 @@ const LabTest = () => {
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
                   <MDBCardTitle>Fourth Package</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                  <MDBBtn href="#" className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
             </div>
@@ -66,7 +72,7 @@ const LabTest = () => {
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
                   <MDBCardTitle>Fifth Package</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                  <MDBBtn href="#" className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
             </div>
@@ -76,7 +82,7 @@ const LabTest = () => {
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
                   <MDBCardTitle>Sixth Package</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
+                  <MDBBtn href="#" className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
             </div>

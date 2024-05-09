@@ -18,17 +18,6 @@ import DownloadPDFButton from '../pages/DownloadPdfBtn';
 
 const Cart = () => {
   const [selectedOption, setSelectedOptions] = useState('');
-  // const [gender, setGender] = useState('');
-  // const [name, setName] = useState('');
-  // const [address, setAddress] = useState('');
-  // const [zip, setZip] = useState('');
-  // const [phone_no, setPhone] = useState('');
-  // const [state, setState] = useState('');
-  // const [country, setCountry] = useState('');
-  // const [email, setEmail] = useState('');
-  // const [age, setAge] = useState('');
-  // const [street, setStreet] = useState('');
-  // const [city, setCity] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     age: '',
@@ -54,7 +43,12 @@ const Cart = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:4000/api/v1/info', formData);
+      const response = await axios.post('http://localhost:4000/api/v1/info/create-info', formData,{
+        headers:{
+          "Content-Type":"application/json"
+        },
+      withCredentials:true
+      });
       console.log(response.data);
       alert("Form submitted successfully!");
     } catch (error) {
@@ -62,8 +56,6 @@ const Cart = () => {
       alert("Error submitting form. Please try again.");
     }
   };
-
-
 
   return (
     <div>
@@ -171,11 +163,11 @@ const Cart = () => {
             </div>
             <div style={{ display: 'flex', justifyContent: 'space-evenly', marginBottom: 30 }}>
               <div>
-                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>City</span><br></br>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>State</span><br></br>
                 <input type="text" name="state" value={formData.state} onChange={handleChange} placeholder="State" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
               </div>
               <div>
-                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>City</span><br></br>
+                <span style={{ color: '#75dbd0', marginLeft: 9, fontWeight: 'bold' }}>Street</span><br></br>
                 <input type="text" name="street" value={formData.street} onChange={handleChange} placeholder="Street" style={{ padding: 9, borderColor: 'white', borderRadius: 10 }} />
               </div>
             </div>

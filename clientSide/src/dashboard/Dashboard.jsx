@@ -8,7 +8,7 @@ const Dashboard = () => {
        <Sidebar />
           <LabHeader />
            <div className='dashboard-main'>
-           <h2>Dsashboard</h2>
+           <h2>Dashboard</h2>
            <p>
             
              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum placeat similique minus, 

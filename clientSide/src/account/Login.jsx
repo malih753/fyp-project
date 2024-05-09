@@ -17,11 +17,17 @@ const Login = () => {
         email,
         password
       }
-      const response = await axios.post('http://localhost:4000/api/v1/login',payloadData );
-      console.log(response.data);
+      const response = await axios.post('http://localhost:4000/api/v1/auth/login',payloadData,{
+        headers:{
+          "Content-Type":"application/json"
+        },
+        withCredentials:true
+      } );
+      console.log(response);
       if(response.data?.success){
         navigation('/home');
       }
+
       // Handle success response here, such as setting user authentication state or redirecting to another page
     } catch (error) {
       console.error('Error logging in:', error);

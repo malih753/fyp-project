@@ -44,10 +44,10 @@ const LabHeader = () => {
                     </form>
                    
                     <div className="d-flex flex-grow-1 justify-content-end" style={{color:"black"}}>
-                               <Link to="/shopping" className="me-2">
+                               <Link to="/settings" className="me-2">
                                        <IoIosNotifications style={{fontSize:"25px", color:"black"}}  />
                                 </Link>
-                                <Link to="/menu" className="me-2">
+                                <Link to="/settings" className="me-2">
                                        <RxDashboard style={{fontSize:"25px",color:"black"}}  />
                                 </Link>
                                 <Link to="/profile" className="me-2">

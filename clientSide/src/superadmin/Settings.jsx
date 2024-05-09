@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
-import { LuTestTube } from "react-icons/lu";
-import { AiFillFileText } from "react-icons/ai";
-import { IoSettingsSharp } from "react-icons/io5";
+import React, { useState, useEffect } from 'react';
 import { BiSolidDashboard } from "react-icons/bi";
+import { LuTestTube } from "react-icons/lu";
 import { ImUsers } from "react-icons/im";
 import { BsCollection } from "react-icons/bs";
 import { TbMessage2Cancel } from "react-icons/tb";
+import { AiFillFileText } from "react-icons/ai";
 import { HiOutlineClipboardDocumentList } from "react-icons/hi2";
 import './settings.css';
 import { NavLink } from 'react-router-dom';
 import Overview from './Overview';
 import Labs from './Labs';
 import AdminCollections from './AdminCollections';
-import AdminPages from './AdminPages';
-//import Documents from './Documents';
 import Users from './Users';
 import Inbox from './Inbox';
 import LabHeader from './../account/profile/LabHeader';
@@ -25,15 +22,16 @@ const Settings = () => {
         setActiveTab(tabName);
     };
 
+    useEffect(() => {
+        setActiveTab('overview');
+    }, []);
+
     return (
-    
         <div className="setting-container">
-                <LabHeader/>
+            <LabHeader/>
             <div className="setting-sidebar">
                 <div className="setting-top_sections">
-                    <div className="setting-bars">
-                     
-                    </div>
+                    <div className="setting-bars"></div>
                 </div>
                 <NavLink to="/overview" onClick={() => handleTabChange('overview')}>
                     <div className="sidebar-link">
@@ -79,12 +77,12 @@ const Settings = () => {
             </div>
             <main className='setting-main'>
                 {/* Render component based on activeTab state */}
+               <p>helo</p>
                 {activeTab === 'overview' && <Overview />}
                 {activeTab === 'labs' && <Labs />}
                 {activeTab === 'users' && <Users />}
                 {activeTab === 'adminCollections' && <AdminCollections />}
                 {activeTab === 'inbox' && <Inbox />}
-                {activeTab === 'adminPages' && <AdminPages />}
             </main>
         </div>
     );

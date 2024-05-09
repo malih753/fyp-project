@@ -30,6 +30,7 @@ import Inbox from "./superadmin/Inbox";
 import Users from "./superadmin/Users";
 import AddUser from "./superadmin/AddUser";
 import AddCollections from "./superadmin/AddCollections";
+import Sidebar from "./dashboard/Sidebar";
 
 
 const App = () => {
