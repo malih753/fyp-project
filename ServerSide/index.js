@@ -4,32 +4,41 @@ const express = require('express')
 const dotenv = require('dotenv')
 const cors = require('cors')
 const mongoose = require('mongoose');
-var bodyParser = require('body-parser')
+
+const cookieParser = require("cookie-parser")
 
 require('dotenv').config()
 const dbConfig = require('./DBconnection')
 const PORT = process.env.PORT || 4000;
-const corsOptions = { credentials: true, origin: process.env.URL || '*' };
+const corsOptions = { origin: process.env.URL || 'http://localhost:5173',credentials:true };
 const app = express()
 app.use(express.json())
 app.use(cors(corsOptions));
-//dd connection 
+app.use(cookieParser())
+
+
 mongoose.Promise = global.Promise;
-mongoose.connect(dbConfig.url, {
-    useNewUrlParser: true
-}).then(() => {
+mongoose.connect(dbConfig.url).then(() => {
     console.log("Databse Connected Successfully!!");
 }).catch(err => {
     console.log('Could not connect to the database', err);
     process.exit();
 });
 // routers
-const authRouter = require('./routes/auth-routes');
 
-app.use('/api/v1', authRouter)
+// All Auth Routes
+const authRouter = require('./routes/auth-routes');
+app.use('/api/v1/auth', authRouter)
+const infoRouter = require('./routes/info.routes');
+app.use('/api/v1/info', infoRouter)
 
 
 app.use(express.static('public'));
+
+
+app.get("/", (req, res) => {
+    res.send("Nice!!!!!!")
+})
 
 
 app.listen(PORT, () => {
