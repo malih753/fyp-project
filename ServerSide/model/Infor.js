@@ -30,9 +30,13 @@ const InfoSchema = new mongoose.Schema({
     },
     zipcode:{
         type:Number
-    } 
+    },
+    user_id:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"user"
+    }
 
-})
+},{timestamps:true})
 
 const Info= mongoose.model('Info',InfoSchema);
 

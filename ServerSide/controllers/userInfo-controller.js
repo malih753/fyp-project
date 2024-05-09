@@ -1,23 +1,17 @@
 "use strict";
-const express = require("express");
-const router = express.Router();
-router.use(express.json());
 
 const catchAsyncFunction = require('../middlewares/catchAsyncFun')
 const InfoModel = require('../model/Infor');
-let app = express();
-let bodyParser = require("body-parser");
-
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
 
 exports.Info = catchAsyncFunction(async (req, res) => {
 
     try {
 
-        const { 
-            name, 
+        const user_id = req.user._id
+        // console.log(user_id)
+
+        const {
+            name,
             age,
             gender,
             phone_no,
@@ -26,12 +20,14 @@ exports.Info = catchAsyncFunction(async (req, res) => {
             state,
             city,
             country,
-            zipcode, 
-           } = req.body;
-      
+            zipcode,
+
+        } = req.body;
+
+
         // Create user in MongoDB
         const newInfo = await InfoModel.create({
-            name, 
+            name,
             age,
             gender,
             phone_no,
@@ -40,28 +36,31 @@ exports.Info = catchAsyncFunction(async (req, res) => {
             state,
             city,
             country,
-            zipcode, 
-           
+            zipcode,
+            user_id,
+
         });
-        await newInfo.save();
-        res.status(201).json(newInfo)
-        res.status(201).send({ message: "Info created successfully", user: newInfo });
+
+        return res.status(201).json({ message: "Info created successfully", newInfo })
+
     } catch (error) {
         res.status(500).send({ message: "Internal server error", error: error.message });
     }
 });
 
-exports.getInfo = catchAsyncFunction(async (req,res)=>{
-    try{
-        const userId = req.InfoModel?._id;  
-        const user = await InfoModel.findOne(userId);
-        
-        res.json(user);
+exports.getInfo = catchAsyncFunction(async (req, res) => {
+    try {
 
-    }catch (e){
+        console.log(req.user)
+        const userId = req.user._id;
+        const info = await InfoModel.findOne({ user_id: userId }).sort({createdAt:-1});
 
-        res.status(500).json({message:e.message});
-        console.log('error',e);
+        return res.status(200).json({ message: "info found successfully", info, success: true });
+
+    } catch (e) {
+
+        res.status(500).json({ message: e.message });
+        console.log('error', e);
     }
 })
 
