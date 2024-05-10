@@ -31,9 +31,13 @@ import Users from "./superadmin/Users";
 import AddUser from "./superadmin/AddUser";
 import AddCollections from "./superadmin/AddCollections";
 import Sidebar from "./dashboard/Sidebar";
+import ProtectedRoute from "./protectedRoutes/ProtectedRoute";
+import { useState } from "react";
+import { Toaster } from 'react-hot-toast';
 
 
 const App = () => {
+  const [user,setUser]=useState({email:"abdul@gmail.com"});
   return (
     <>
       <div>
@@ -50,7 +54,21 @@ const App = () => {
           <Route path="/register" element={<Register/>} />
           <Route path="/login" element={<Login/>} />
           <Route path="/profileorders" element={<ProfileOrders />} />
+
+
+            {/* admin routes */}
+          <Route  element={<ProtectedRoute user={user}/>}>
           <Route path="/labadmin" element={<LabAdmin />} />
+          <Route path = "/overview" element={<Overview />} />
+          <Route path="/users" element= {<Users />} />
+          <Route path="/admincollections" element= {<AdminCollections />} />
+          <Route path="/inbox" element= {<Inbox />} />
+          <Route path="/labs" element= {<Labs />} />
+          </Route>
+        
+
+
+
           <Route path="/logout" element={<Logout />} />
           { <Route path="/products" element={<Product />} /> }
           <Route path="/dashboard" element={<Dashboard />} />
@@ -64,17 +82,20 @@ const App = () => {
            <Route path = "/edit" element={<EditOrder />} />
            <Route path = "/predictPackages" element={<PredictPackages />} />
            <Route path = "/settings" element={<Settings />} />
-           <Route path = "/overview" element={<Overview />} />
-           <Route path="/admincollections" element= {<AdminCollections />} />
+         
+           
            <Route path="/documents" element= {<Documents />} />
-           <Route path="/inbox" element= {<Inbox />} />
-           <Route path="/labs" element= {<Labs />} />
-           <Route path="/users" element= {<Users />} />
+           
+         
+          
            <Route path="/adminPages" element= {<AdminPages />} />
            <Route path="/addUser" element={<AddUser/>}/>
            <Route path="/adminCollections" element={<AdminCollections/>}/>
            <Route path="/addCollections" element={<AddCollections/>}/>
         </Routes>
+        <Toaster />
+
+        
     
       </div>
     

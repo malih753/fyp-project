@@ -60,7 +60,7 @@ const Sidebar = ({ children }) => {
             <div className="setting-top_sections">
                 <div className="setting-bars"></div>
             </div>
-            <NavLink to="/dashboard" onClick={() => handleTabChange('overview')}>
+            <NavLink to="/dashboard" onClick={() => handleTabChange('dashboard')}>
                 <div className="sidebar-link">
                     <BiSolidDashboard className="sidebar-icon" />
                     <h4>Dashboard</h4>
