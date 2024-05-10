@@ -88,7 +88,7 @@ const Footer = () => {
                 <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
                 <p>
                   <MDBIcon icon="home" className="me-2" style={{color:"#75dbd0"}}/>
-                  Lahore, Pakistan
+                  Rawalpindi, Pakistan
                 </p>
                 <p>
                   <MDBIcon icon="envelope" className="me-3 "style={{color:"#75dbd0"}} />
@@ -105,7 +105,7 @@ const Footer = () => {
         <div className=' footer-copyright'>
           © {new Date().getFullYear()} Copyright:
           <a className='text-reset fw-bold' href='#!'>
-            Shoaib
+            maliha
           </a>
         </div>
       </MDBFooter>

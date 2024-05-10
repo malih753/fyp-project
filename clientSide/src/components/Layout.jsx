@@ -13,10 +13,11 @@ import {
   MDBCardTitle,
 } from "mdb-react-ui-kit";
 import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
-import lightbox1 from "./../assets/lightbox1.jpg";
-import lightbox2 from "./../assets/lightbox2.jpg";
-import lightbox3 from "./../assets/lightbox3.jpg";
-import lightbox4 from "./../assets/lightbox4.jpg";
+import lightbox1 from "./../assets/full.jpg";
+import lightbox2 from "./../assets/vitmains.jpeg";
+import lightbox3 from "./../assets/diabiesties.webp";
+import lightbox4 from "./../assets/fever.png";
+import icon from "../assets/right-arrow.png";
 // import lightbox5 from './../assets/lightbox5.jpg';
 import "./layout.css";
 
@@ -37,10 +38,10 @@ const Layout = () => {
             </div>
             <div className="left-btn" style={{ display: "flex", gap: "10px" }}>
               <MDBBtn className="me-1" style={{ backgroundColor: "#75DBD0" }}>
-                <Link to="/predictPackages" style={{color:"white"}}>
-                 Get Started <MDBIcon fas icon="arrow-right" className="ms-1" /> 
+                <Link to="/predictPackages" style={{ color: "white" }}>
+                  Get Started <MDBIcon fas icon="arrow-right" className="ms-1" />
                 </Link>
-             
+
               </MDBBtn>
               <MDBBtn
                 className="me-1"
@@ -59,55 +60,30 @@ const Layout = () => {
         {/* second */}
 
         <div className="second Tooltip">
-          <div className="row row-cols-1 row-cols-md-2 g-4">
+          <div className="row row-cols-1 row-cols-md-1">
             <div className="col mb-3">
-              <MDBTooltip
-                placement="top"
-                wrapperProps={{ color: "#75DBD0" }}
-                title="Health Packages"
-              >
-                <ElectricBoltIcon
-                  style={{ backgroundColor: "#f8f9fa", color: "#75DBD0" }}
-                />{" "}
-                Health Packages
-              </MDBTooltip>
+              <div style={{ color: "#75DBD0", backgroundColor: "#f8f9fa", width: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 20 ,padding:10}}>
+               
+                <span style={{ fontWeight: 'bold', fontSize:15}}> Health packages</span>
+              </div>
             </div>
             <div className="col mb-3">
-              <MDBTooltip
-                wrapperProps={{ color: "#75DBD0", backgroundColor: "#f8f9fa" }}
-                placement="top"
-                title="Browse Tests"
-              >
-                <ElectricBoltIcon
-                  style={{ backgroundColor: "#f8f9fa", color: "#75DBD0" }}
-                />{" "}
-                Browse Tests
-              </MDBTooltip>
+              <div style={{ color: "#75DBD0", backgroundColor: "#f8f9fa", width: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 20 ,padding:10}}>
+               
+                <span style={{ fontWeight: 'bold', fontSize:15}}>Recent Packages</span>
+              </div>
             </div>
             <div className="col mb-3">
-              <MDBTooltip
-                wrapperProps={{ color: "#75DBD0" }}
-                placement="top"
-                title="Upload Prescription"
-              >
-                <ElectricBoltIcon
-                  style={{ backgroundColor: "#f8f9fa", color: "#75DBD0" }}
-                />{" "}
-                Upload Prescription
-              </MDBTooltip>
+              <div style={{ color: "#75DBD0", backgroundColor: "#f8f9fa", width: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 20 ,padding:10}}>
+               
+                <span style={{ fontWeight: 'bold', fontSize:15}}>Upload Data</span>
+              </div>
             </div>
-            <div className="col mb-3" >
-              <MDBTooltip
-                wrapperProps={{ color: "#75DBD0",  }}
-                placement="top"
-                
-                title="Book Call"
-              >
-                <ElectricBoltIcon
-                  style={{ backgroundColor: "#f8f9fa", color: "#75DBD0",  }}
-                />{" "}
-                Book Call for Test
-              </MDBTooltip>
+            <div className="col mb-3">
+              <div style={{ color: "#75DBD0", backgroundColor: "#f8f9fa", width: 180, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 20 ,padding:10}}>
+               
+                <span style={{ fontWeight: 'bold', fontSize:15}}>Recall for Now</span>
+              </div>
             </div>
           </div>
         </div>
@@ -115,24 +91,24 @@ const Layout = () => {
 
 
         <div className="third">
-      <div className="heading">
-        <h2>Lab Tests By Health Concerns</h2>
-      </div>
-      <div className="row">
-        <div className="col-6 col-md-3 mb-4">
-          <img src={lightbox1} alt="a" className="img-fluid rounded-lg" />
+          <div className="heading">
+            <h2>Lab Tests By Health Concerns</h2>
+          </div>
+          <div className="row">
+            <div className="col-6 col-md-3 mb-4">
+              <img src={lightbox1} alt="a" className="rounded-lg" style={{ width: 250, height: 230, borderRadius: 150 }} />
+            </div>
+            <div className="col-6 col-md-3 mb-4">
+              <img src={lightbox2} alt="b" className="rounded-lg" style={{ width: 250, height: 230, borderRadius: 150 }} />
+            </div>
+            <div className="col-6 col-md-3 mb-4">
+              <img src={lightbox3} alt="c" className=" rounded-lg" style={{ width: 250, height: 230, borderRadius: 150 }} />
+            </div>
+            <div className="col-6 col-md-3 mb-4">
+              <img src={lightbox4} alt="d" className=" rounded-lg" style={{ width: 260, height: 230, borderRadius: 150 }} />
+            </div>
+          </div>
         </div>
-        <div className="col-6 col-md-3 mb-4">
-          <img src={lightbox2} alt="b" className="img-fluid rounded-lg" />
-        </div>
-        <div className="col-6 col-md-3 mb-4">
-          <img src={lightbox3} alt="c" className="img-fluid rounded-lg" />
-        </div>
-        <div className="col-6 col-md-3 mb-4">
-          <img src={lightbox4} alt="d" className="img-fluid rounded-lg" />
-        </div>
-      </div>
-    </div>
 
 
         <div className="fourth">
@@ -153,7 +129,7 @@ const Layout = () => {
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
-                  <MDBCardTitle>Second Package</MDBCardTitle>
+                  <MDBCardTitle>Blood urea nitrogen test</MDBCardTitle>
                   <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
@@ -162,7 +138,7 @@ const Layout = () => {
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
-                  <MDBCardTitle>Third Package</MDBCardTitle>
+                  <MDBCardTitle>Calcium blood test</MDBCardTitle>
                   <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
@@ -174,7 +150,7 @@ const Layout = () => {
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
-                  <MDBCardTitle>Fourth Package</MDBCardTitle>
+                  <MDBCardTitle> CO2 blood test</MDBCardTitle>
                   <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
@@ -183,7 +159,7 @@ const Layout = () => {
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
-                  <MDBCardTitle>Fifth Package</MDBCardTitle>
+                  <MDBCardTitle> Albumin blood test</MDBCardTitle>
                   <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
@@ -193,7 +169,7 @@ const Layout = () => {
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
-                  <MDBCardTitle>Sixth Package</MDBCardTitle>
+                  <MDBCardTitle> C-reactive protein (CRP) test</MDBCardTitle>
                   <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
@@ -206,7 +182,7 @@ const Layout = () => {
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
-                  <MDBCardTitle>Seventh Package</MDBCardTitle>
+                  <MDBCardTitle> Pancreas blood tests</MDBCardTitle>
                   <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
@@ -215,7 +191,7 @@ const Layout = () => {
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
-                  <MDBCardTitle>Eighth Package</MDBCardTitle>
+                  <MDBCardTitle> Cardiac blood tests</MDBCardTitle>
                   <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
@@ -224,7 +200,7 @@ const Layout = () => {
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
-                  <MDBCardTitle>Ninth Package</MDBCardTitle>
+                  <MDBCardTitle> Arterial blood gas test</MDBCardTitle>
                   <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
@@ -250,7 +226,7 @@ const Layout = () => {
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
-                  <MDBCardTitle>Second Package</MDBCardTitle>
+                  <MDBCardTitle> Arterial blood gas test</MDBCardTitle>
                   <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
@@ -259,7 +235,7 @@ const Layout = () => {
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
                 <MDBCardBody>
-                  <MDBCardTitle>Third Package</MDBCardTitle>
+                  <MDBCardTitle> Chloride blood test</MDBCardTitle>
                   <MDBBtn href="#" className="custom-btn">Book Now</MDBBtn>
                 </MDBCardBody>
               </MDBCard>
@@ -267,7 +243,7 @@ const Layout = () => {
           </div>
         </div>
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
