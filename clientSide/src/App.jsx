@@ -34,6 +34,7 @@ import Sidebar from "./dashboard/Sidebar";
 import ProtectedRoute from "./protectedRoutes/ProtectedRoute";
 import { useState } from "react";
 import { Toaster } from 'react-hot-toast';
+import AddNewLab from "./superadmin/AddNewLab";
 
 
 const App = () => {
@@ -92,6 +93,7 @@ const App = () => {
            <Route path="/addUser" element={<AddUser/>}/>
            <Route path="/adminCollections" element={<AdminCollections/>}/>
            <Route path="/addCollections" element={<AddCollections/>}/>
+           <Route pa="/addnewLab" element={<AddNewLab/>}/>
         </Routes>
         <Toaster />
 

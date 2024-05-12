@@ -62,12 +62,4 @@ exports.signUp = catchAsyncFunction(async (req, res) => {
 });
 
 
-// firstname
-// lastname
-// Address
-// city
-// state
-// email
-// password
-// phone_no
 

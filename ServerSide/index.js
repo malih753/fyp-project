@@ -31,6 +31,8 @@ const authRouter = require('./routes/auth-routes');
 app.use('/api/v1/auth', authRouter)
 const infoRouter = require('./routes/info.routes');
 app.use('/api/v1/info', infoRouter)
+const newUserRouter = require('./routes/newUser-routes');
+app.use('/api/v1/getNewUser', newUserRouter)
 
 
 app.use(express.static('public'));

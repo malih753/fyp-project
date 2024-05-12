@@ -8,8 +8,6 @@ const router = express.Router();
 
 
 router.post('/create-info',IsAuthenticated, InfoController.Info);
-
-// router.post('/Info',InfoController.Info);
 router.get('/getInfo',IsAuthenticated,InfoController.getInfo);
 
 

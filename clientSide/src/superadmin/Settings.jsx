@@ -14,6 +14,7 @@ import AdminCollections from './AdminCollections';
 import Users from './Users';
 import Inbox from './Inbox';
 import LabHeader from './../account/profile/LabHeader';
+import OfferedTest from '../dashboard/OfferedTest';
 
 const Settings = () => {
     const [activeTab, setActiveTab] = useState('overview');
@@ -63,10 +64,16 @@ const Settings = () => {
                         <h4>Inbox</h4>
                     </div>
                 </NavLink>
-                <NavLink to="/home" onClick={() => handleTabChange('pages')}>
+                <NavLink to="/offeredtest" onClick={() => handleTabChange('offeredtest')}>
                     <div className="sidebar-link">
                         <AiFillFileText className="sidebar-icon" />
                         <h4>Pages</h4>
+                    </div>
+                </NavLink>
+                <NavLink to="/users" onClick={() => handleTabChange('users')}>
+                    <div className="sidebar-link">
+                        <AiFillFileText className="sidebar-icon" />
+                        <h4>Users</h4>
                     </div>
                 </NavLink>
                 <hr />
@@ -83,6 +90,7 @@ const Settings = () => {
                 {activeTab === 'users' && <Users />}
                 {activeTab === 'adminCollections' && <AdminCollections />}
                 {activeTab === 'inbox' && <Inbox />}
+                {activeTab === 'users' && <Users/>}
             </main>
         </div>
     );
