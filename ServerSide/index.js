@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser")
 
 require('dotenv').config()
 const dbConfig = require('./DBconnection')
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 5000;
 const corsOptions = { origin: process.env.URL || 'http://localhost:5173',credentials:true };
 const app = express()
 app.use(express.json())

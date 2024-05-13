@@ -25,7 +25,7 @@ const Register = () => {
         email,
         password
       }
-      const response = await axios.post('http://localhost:4000/api/v1/auth/signUp', payloadData);
+      const response = await axios.post('http://localhost:5000/api/v1/auth/signUp', payloadData);
 
       console.log(response.data); 
       // Log response data

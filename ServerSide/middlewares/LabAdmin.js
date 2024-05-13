@@ -6,6 +6,8 @@ const isAdmin =(req,res,next)=>{
             success: false,
             message: "login with admin account please"
         })
+    }else{
+        next();
     }
 }
 

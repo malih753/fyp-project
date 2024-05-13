@@ -1,7 +1,7 @@
 "use strict";
 
 const catchAsyncFunction = require('../middlewares/catchAsyncFun')
-const NewUserModel = require('../model/NewUser');
+const UserModel = require('../model/User');
 
 exports.newUser = catchAsyncFunction(async (req, res) => {
 
@@ -16,7 +16,7 @@ exports.newUser = catchAsyncFunction(async (req, res) => {
 
 
         // Create user in MongoDB
-        const newUser = await NewUserModel.create({
+        const newUser = await UserModel.create({
             firstname,
             password,
             email,
@@ -32,12 +32,9 @@ exports.newUser = catchAsyncFunction(async (req, res) => {
     }
 });
 
-exports.getNewUser = catchAsyncFunction(async (req, res) => {
+exports.getNewUsers = catchAsyncFunction(async (req, res) => {
     try {
-
-        console.log(req.user)
-        const newUserId = req.body;
-        const newUsers = await InfoModel.findOne(newUserId);
+        const newUsers = await UserModel.find({});
 
         return res.status(200).json({ message: "info found successfully", newUsers, success: true });
 

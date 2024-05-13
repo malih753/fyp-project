@@ -8,8 +8,8 @@ const IsLabAdmin = require('../middlewares/LabAdmin');
 const router = express.Router();
 
 
-router.post('/create-newUser',IsAuthenticated,IsLabAdmin,newUserController.newUser);
-router.get('/newUser',IsAuthenticated,IsLabAdmin,newUserController.getNewUser);
+router.post('/createNewUser',IsAuthenticated,IsLabAdmin,newUserController.newUser);
+router.get('/getAdminUsers',IsAuthenticated,IsLabAdmin,newUserController.getNewUsers);
 
 
 

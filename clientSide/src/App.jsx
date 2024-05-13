@@ -65,6 +65,7 @@ const App = () => {
           <Route path="/admincollections" element= {<AdminCollections />} />
           <Route path="/inbox" element= {<Inbox />} />
           <Route path="/labs" element= {<Labs />} />
+          <Route path="/addUser" element={<AddUser/>}/>
           </Route>
         
 
@@ -90,7 +91,7 @@ const App = () => {
          
           
            <Route path="/adminPages" element= {<AdminPages />} />
-           <Route path="/addUser" element={<AddUser/>}/>
+          
            <Route path="/adminCollections" element={<AdminCollections/>}/>
            <Route path="/addCollections" element={<AddCollections/>}/>
            <Route pa="/addnewLab" element={<AddNewLab/>}/>

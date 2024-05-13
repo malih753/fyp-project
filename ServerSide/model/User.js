@@ -35,6 +35,9 @@ const userSchema = new mongoose.Schema({
         type: Number,
 
     },
+    role:{
+        type:String,enum:['User','Admin','Lab User'] , default : 'User'
+    }
 },{timestamps:true});
 
 userSchema.methods.generateAuthToken = function () {
