@@ -20,7 +20,7 @@ const Product = () => {
 
   return (
     <div>
-      <ProfileHeader />
+     
       <div className='main-div'>
         <div className='left-div'>
           <div className='card-one'>
@@ -78,11 +78,7 @@ const Product = () => {
           </div>
             </div>
           </div>
-          <div className='card-three'>
-            <div className="divs-three">
-              {/* Content for the third card can be added here */}
-            </div>
-          </div>
+         
         </div>
 
 

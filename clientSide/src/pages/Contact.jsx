@@ -6,7 +6,7 @@ import ProfileHeader from '../account/profile/ProfileHeader';
 const Contact = () => {
   return (
     <div className="container justify-content-center align-items-center vh-100" style={{ marginTop: 80, backgroundColor:"" }}>
-     <ProfileHeader/>
+   
       <div className="row justify-content-center align-items-center">
         <div className="col-md-8 col-lg-6">
           <p className="text-center sm: mt-5" style={{ color: "#75dbd0", fontWeight: "bold", fontSize: 34, fontFamily: "cursive" }}>Contact Support</p>

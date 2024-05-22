@@ -1,96 +1,54 @@
 import react from 'react'
 import "./labTest.css";
-import Header from '../components/Header';
-import Footer from '../components/Footer';
- 
+import { Typography } from "@mui/material";
+
 import { useNavigate } from "react-router-dom";
 import {
   MDBBtn,
-  MDBIcon,
-  MDBTooltip,
   MDBCard,
   MDBCardHeader,
   MDBCardBody,
   MDBCardTitle,
 } from "mdb-react-ui-kit";
+import { packages } from '../constant/constant';
 
 const LabTest = () => {
   const navigation = useNavigate();
   const handleClick = () => {
-    navigation('/cart')   ;
+    navigation('/cart');
   };
   return (
     <div>
-    <Header/>
-    <div style={{marginRight:40,marginLeft:50}}>
-      <h2>Lab Test</h2>
-      <div className="heading">
-            <h2>Frequently Booked Packages</h2>
-          </div>
-          <div className="row row-cols-1 row-cols-md-3 g-4">
-            <div className="col">
-              <MDBCard alignment="center">
-                <MDBCardHeader >Pakage</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle>Advance Renal Pakage</MDBCardTitle>
-                  <MDBBtn   className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
-            </div>
-            <div className="col">
-              <MDBCard alignment="center">
-                <MDBCardHeader>Pakage</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle>Second Package</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
-            </div>
-            <div className="col">
-              <MDBCard alignment="center">
-                <MDBCardHeader>Pakage</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle>Third Package</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
-            </div>
-          </div>
-          <div className="mb-4"></div>
-          <div className="row row-cols-1 row-cols-md-3 g-4">
-            <div className="col">
-              <MDBCard alignment="center">
-                <MDBCardHeader>Pakage</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle>Fourth Package</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
-            </div>
-            <div className="col">
-              <MDBCard alignment="center">
-                <MDBCardHeader>Pakage</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle>Fifth Package</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
-            </div>
+      <div style={{ marginRight: 40, marginLeft: 50 }}>
+        <h2>Lab Test</h2>
+        <div className="heading">
+          <h2>Frequently Booked Packages</h2>
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "30px" }}>
 
+          {packages.map((pack) => (
             <div className="col">
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle>Sixth Package</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn" onClick={handleClick}>Book Now</MDBBtn>
+                <MDBCardBody style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                  <MDBCardTitle>{pack.title}</MDBCardTitle>
+                  <Typography sx={{
+                    backgroundColor: "white", borderRadius: "10px", border
+                      : "1px solid black", borderColor: "black", width: "fit-content", margin: "10px 0", padding: "10px"
+                  }}>{pack.price}</Typography>
+                  <MDBBtn href="#" className="custom-btn">
+                    Book Now
+                  </MDBBtn>
                 </MDBCardBody>
               </MDBCard>
             </div>
-          </div>
-    
-    
-    </div>
-    
+          ))}
+
+        </div>
+
+
+      </div>
+
     </div>
   )
 }

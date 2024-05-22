@@ -5,7 +5,7 @@ import ProfileHeader from '../account/profile/ProfileHeader';
 const About = () => {
   return (
     <div className="container" style={{ marginTop: 120 }}>
-      <ProfileHeader />
+     
       <div className="row justify-content-center">
         <div className="col-lg-8 col-md-10">
           <p className="text-center mb-5" style={{ color: "#75dbd0", fontWeight: "bold", fontSize: 22 }}>

@@ -4,11 +4,11 @@
     align-items: center;
     background-color: #f4f5f7;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    padding-top: 20px;
-    height: 130px;
+    height: 100px;
     top: 0;
-    width: 100%;
+    width: 100%; 
     z-index: 999; 
+    align-items: center;
   }
   
   .cart-heading h2 {
@@ -16,14 +16,12 @@
     margin-left: 250px;
     color: black;
     text-align: left;
-    margin-top: 50px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   
   .stepper {
     display: flex;
-    padding-top: 10px;
-    margin-top: 10px;
+    align-items:center;
   }
   
   .stepper-button {
@@ -40,16 +38,10 @@
      cursor: pointer;
   }
 
-  /* .stepper-button span:hover{
-     background-color: #f4f5f7;
-     color: black;
-     border: none;
-     padding: 10px 20px;
-     margin-right: 10px;
-     display: flex;
-     align-items: center;
-     cursor: pointer;
-  } */
+ .left-div{
+    width:'130px';
+    height:"1000px"
+ }
 
   .main-d{
     /* background-color: #f4f5f7; */
@@ -57,21 +49,14 @@
     margin-left: 200px;
     width: 1300px;
     justify-items: center;
-    align-items: center;
+   
     /* padding-top: 20px; */
     margin-top: 4px;
     display: flex;
-    justify-content: space-between;
-    /* border: 4px solid yellow; */
   }
 
 
- .left-div{
-    /* background: #000; */
-    height: 50px;
-    width: 150px;
-/*     border: 5px solid rgb(128, 30, 0); */
- }
+  
  .left-one{
     margin-top: 30px;
       width: 95%;
@@ -97,10 +82,8 @@
  .left-two{
     margin-top: 30px;
       width: 95%;
-      height: 220px;
       margin-left: 10px;
       background-color: #f4f5f7;
-      /* background-color: white; */
       border-radius: 10px;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
       padding-bottom: 10px;
@@ -113,13 +96,11 @@
 
 .two-div-left{
     background-color: white;
-    border-radius: 20px;
     margin-left: 10px;
     margin-right: 10px;
     display: flex;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-    margin-top: 5px;
 }
 .two-div-left img{
      border: none;
@@ -165,21 +146,19 @@
  }
  .left-four{
     margin-top: 30px;
-    width: 95%;
-    height: 100px;
+    width: 30%;
     margin-left: 10px;
-    /* background-color: white; */
     border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     padding-bottom: 20px;
     margin-left: 15px;
     padding-top: 10px;
-    display: block;
-    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
  }
 .visit-lab  {
     width: 95%;
-    height: 120px;
     padding-top: 10px;
     margin-top: 10px;
     border-radius: 10px;
@@ -200,9 +179,9 @@
 
  .right-div{
     background-color: #f4f5f7;
-    height: 1000px;
-    width: 80%;
-    /* border: 2px solid black; */
+    width: 80%; 
+    margin-left: 20px;
+    margin-top: 20px;
  }
 
 .booking-details{

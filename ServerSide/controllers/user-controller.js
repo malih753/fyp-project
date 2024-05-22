@@ -61,5 +61,13 @@ exports.signUp = catchAsyncFunction(async (req, res) => {
     }
 });
 
+exports.myProfile=catchAsyncFunction(async(req,res)=>{
+    const user = await UserModel.findById(req.user._id)
+    if(!user){
+        return res.status(404).json({message:"user not found",success:false})
+    }
+    return res.status(200).json({message:"user found successfully",user,success:true})
+})
+
 
 

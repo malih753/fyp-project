@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import About from './pages/About';
-import MainHeader from './components/MainHeader'; 
+import MainHeader from './components/MainHeader';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
 import LabTest from './pages/LabTest';
@@ -25,54 +25,68 @@ import Overview from "./superadmin/Overview";
 import Labs from "./superadmin/Labs";
 import AdminPages from "./superadmin/AdminPages";
 import AdminCollections from "./superadmin/AdminCollections";
-import Documents  from "./superadmin/Documents";
+import Documents from "./superadmin/Documents";
 import Inbox from "./superadmin/Inbox";
 import Users from "./superadmin/Users";
 import AddUser from "./superadmin/AddUser";
 import AddCollections from "./superadmin/AddCollections";
 import Sidebar from "./dashboard/Sidebar";
 import ProtectedRoute from "./protectedRoutes/ProtectedRoute";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Toaster } from 'react-hot-toast';
 import AddNewLab from "./superadmin/AddNewLab";
-
+import Header from "./components/Header";
+import { AuthContextProvider, useAuth } from "./context/authContext";
+import axios from "axios";
 
 const App = () => {
-  const [user,setUser]=useState({email:"abdul@gmail.com"});
+   const {login,user}=useAuth()
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const response = await axios.get("http://localhost:5000/api/v1/auth/my_profile", {
+        withCredentials: true
+      })
+
+      login(response.data?.user)
+    }
+    fetchUser()
+  }, [])
+
   return (
     <>
       <div>
-      
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/mainHeader" element={<MainHeader />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/test" element={<LabTest/>} />
-          <Route path="/profile" element={<Profile/>} />
-          <Route path="/cart" element={<Cart/>} />
-          <Route path="/register" element={<Register/>} />
-          <Route path="/login" element={<Login/>} />
+          <Route path="/test" element={<LabTest />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/cart/:name" element={<Cart />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/profileorders" element={<ProfileOrders />} />
 
 
-            {/* admin routes */}
-          <Route  element={<ProtectedRoute user={user}/>}>
-          <Route path="/labadmin" element={<LabAdmin />} />
-          <Route path = "/overview" element={<Overview />} />
-          <Route path="/users" element= {<Users />} />
-          <Route path="/admincollections" element= {<AdminCollections />} />
-          <Route path="/inbox" element= {<Inbox />} />
-          <Route path="/labs" element= {<Labs />} />
-          <Route path="/addUser" element={<AddUser/>}/>
+          {/* admin routes */}
+          <Route element={<ProtectedRoute user={user} />}>
+            <Route path="/labadmin" element={<LabAdmin />} />
+            <Route path="/overview" element={<Overview />} />
+            <Route path="/users" element={<Users />} />
+            <Route path="/admincollections" element={<AdminCollections />} />
+            <Route path="/inbox" element={<Inbox />} />
+            <Route path="/labs" element={<Labs />} />
+            <Route path="/addUser" element={<AddUser />} />
           </Route>
-        
+
 
 
 
           <Route path="/logout" element={<Logout />} />
-          { <Route path="/products" element={<Product />} /> }
+          {<Route path="/products" element={<Product />} />}
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/offeredtest" element={<OfferedTest />} />
           <Route path="/pages" element={<Pages />} />
@@ -80,29 +94,29 @@ const App = () => {
           <Route path="/CustomTestForm" element={<CustomTestForm />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/collections" element={<Collections />} />
-           <Route path="/book" element={<Product />} />
-           <Route path = "/edit" element={<EditOrder />} />
-           <Route path = "/predictPackages" element={<PredictPackages />} />
-           <Route path = "/settings" element={<Settings />} />
-         
-           
-           <Route path="/documents" element= {<Documents />} />
-           
-         
-          
-           <Route path="/adminPages" element= {<AdminPages />} />
-          
-           <Route path="/adminCollections" element={<AdminCollections/>}/>
-           <Route path="/addCollections" element={<AddCollections/>}/>
-           <Route pa="/addnewLab" element={<AddNewLab/>}/>
+          <Route path="/book" element={<Product />} />
+          <Route path="/edit" element={<EditOrder />} />
+          <Route path="/predictPackages" element={<PredictPackages />} />
+          <Route path="/settings" element={<Settings />} />
+
+
+          <Route path="/documents" element={<Documents />} />
+
+
+
+          <Route path="/adminPages" element={<AdminPages />} />
+
+          <Route path="/adminCollections" element={<AdminCollections />} />
+          <Route path="/addCollections" element={<AddCollections />} />
+          <Route pa="/addnewLab" element={<AddNewLab />} />
         </Routes>
         <Toaster />
 
-        
-    
+
+
       </div>
-    
-    </>
+
+    </ >
   );
 }
 

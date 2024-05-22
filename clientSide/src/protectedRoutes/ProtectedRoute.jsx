@@ -4,7 +4,7 @@
  
  const ProtectedRoute = ({user}) => {
     
-   if(user.email !== "abdul@gmail.com"){
+   if(user.email !== "maliha@gmail.com"){
     toast.error("please login with admin account",{position:"bottom-center"})
     return  <Navigate to={"/"} />
    

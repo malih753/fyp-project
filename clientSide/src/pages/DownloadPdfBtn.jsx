@@ -9,7 +9,7 @@ const DownloadPDFButton = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:4000/api/v1/info/getInfo', {
+      const response = await axios.get('http://localhost:5000/api/v1/info/getInfo', {
         withCredentials: true
       });
       console.log(response);
@@ -40,15 +40,21 @@ const DownloadPDFButton = () => {
       data.forEach((item, index) => {
         doc.text(`${index + 1}. Name: ${item.name}`, 20, y);
         doc.text(`   Email: ${item.email}`, 20, y + 5);
-        doc.text(`   State: ${item.state}`, 20, y + 10);
-        y += 20; // Increase the vertical position for the next item
+        doc.text(`   State: ${item.state}`, 20, y + 10); 
+        doc.text(`   Package Name: ${item.package_name}`, 20, y + 15);
+        doc.text(`   Package price: ${item.price}`, 20, y + 20);
+    
+        y += 30; // Increase the vertical position for the next item
       });
     } else {
       // Handle non-array data types
       doc.text(`1. Name: ${data.name}`, 20, y);
       doc.text(`   Email: ${data.email}`, 20, y + 5);
       doc.text(`   State: ${data.state}`, 20, y + 10);
+      doc.text(`   Package Name: ${data.package_name}`, 20, y + 15);
+      doc.text(`   Package price: ${data.price}`, 20, y + 20);
     }
+    
 
     doc.save('data.pdf');
   };

@@ -1,13 +1,11 @@
 
 .homes-order{
     background-color: rgba(0, 0, 0, 0.05) ;
-    width: 900px;
-    height: 700px;
     justify-content: center;
-    margin-left: 300px;
     margin-top: 50px;
-  
-    
+    min-height: 700px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .text-headings{
@@ -52,6 +50,7 @@
     flex-direction: row;
     margin-bottom: 20px;
     border: 10px sold rgb(22, 21, 21);
+    align-items: center;
 }
 
 .cards_details p{

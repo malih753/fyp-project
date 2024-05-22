@@ -13,7 +13,7 @@ import ProfileHeader from './profile/ProfileHeader';
 const Profile = () => {
   return (
     <div >
-      <ProfileHeader /> 
+     
       <section className="vh-100 " style={{ backgroundColor: '#f4f5f7',margin: '0 auto',maxWidth: '900px' }}>
         <MDBContainer className="py-5 h-200 " >
           <MDBRow className="justify-content-center align-items-center h-100">
@@ -41,7 +41,7 @@ const Profile = () => {
                         </MDBCol>
                       </MDBRow>
                       <div className="d-flex justify-content-start mb-1 "> 
-                           <Link to="/labadmin" ><MDBBtn  className="me-3" style={{ backgroundColor: '#75DBD0', padding:"8px",width:"100px" }}>Lab admin</MDBBtn></Link>
+                           <Link to="/dashboard" ><MDBBtn  className="me-3" style={{ backgroundColor: '#75DBD0', padding:"8px",width:"100px" }}>Lab admin</MDBBtn></Link>
                            <Link to="/profileorders" > <MDBBtn  className="me-3" style={{ backgroundColor: '#75DBD0', padding:"8px",width:"100px" }}>Orders</MDBBtn> </Link>
                            <Link to="/home" > <MDBBtn className="me-3" style={{ backgroundColor: '#75DBD0', padding:"8px",width:"100px" }}>Log out</MDBBtn>  </Link>
                     </div>
