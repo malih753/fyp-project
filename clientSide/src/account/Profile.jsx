@@ -32,6 +32,7 @@ const Profile = () => {
     }
   };
   return (
+<<<<<<< HEAD
     <div>
       <section
         className="vh-100 "
@@ -42,6 +43,12 @@ const Profile = () => {
         }}
       >
         <MDBContainer className="py-5 h-200 ">
+=======
+    <div >
+     
+      <section className="vh-100 " style={{ backgroundColor: '#f4f5f7',margin: '0 auto',maxWidth: '900px' }}>
+        <MDBContainer className="py-5 h-200 " >
+>>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
           <MDBRow className="justify-content-center align-items-center h-100">
             <MDBCol lg="6" className="mb-4 mb-lg-0">
               <MDBCard className="mb-6" style={{ borderRadius: ".5rem" }}>
@@ -91,6 +98,7 @@ const Profile = () => {
                           </MDBCardText>
                         </MDBCol>
                       </MDBRow>
+<<<<<<< HEAD
                       <div className="d-flex justify-content-start mb-1 ">
                         {user?.email === "maliha@gmail.com" && (
                           <Link to="/labadmin">
@@ -136,6 +144,13 @@ const Profile = () => {
                           </MDBBtn>
                     
                       </div>
+=======
+                      <div className="d-flex justify-content-start mb-1 "> 
+                           <Link to="/dashboard" ><MDBBtn  className="me-3" style={{ backgroundColor: '#75DBD0', padding:"8px",width:"100px" }}>Lab admin</MDBBtn></Link>
+                           <Link to="/profileorders" > <MDBBtn  className="me-3" style={{ backgroundColor: '#75DBD0', padding:"8px",width:"100px" }}>Orders</MDBBtn> </Link>
+                           <Link to="/home" > <MDBBtn className="me-3" style={{ backgroundColor: '#75DBD0', padding:"8px",width:"100px" }}>Log out</MDBBtn>  </Link>
+                    </div>
+>>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
                     </MDBCardBody>
                   </MDBCol>
                 </MDBRow>

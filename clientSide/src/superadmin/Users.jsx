@@ -11,13 +11,20 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { Stack } from "@mui/material";
+<<<<<<< HEAD
 import { ServerDomain } from "../constant/ServerDomain";
+=======
+>>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
 
 const Users = () => {
   const [allUsers, setAllUsers] = useState([]);
   useEffect(() => {
     axios
+<<<<<<< HEAD
       .get(`${ServerDomain}/getNewUser/getAdminUsers`, {
+=======
+      .get("http://localhost:5000/api/v1/getNewUser/getAdminUsers", {
+>>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
         withCredentials: true,
       })
       .then((response) => {

@@ -63,6 +63,7 @@ exports.signUp = catchAsyncFunction(async (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 exports.myProfile = catchAsyncFunction(async (req, res) => {
   const user = await UserModel.findById(req.user._id);
   if (!user) {
@@ -72,6 +73,16 @@ exports.myProfile = catchAsyncFunction(async (req, res) => {
     .status(200)
     .json({ message: "user found successfully", user, success: true });
 });
+=======
+exports.myProfile=catchAsyncFunction(async(req,res)=>{
+    const user = await UserModel.findById(req.user._id)
+    if(!user){
+        return res.status(404).json({message:"user not found",success:false})
+    }
+    return res.status(200).json({message:"user found successfully",user,success:true})
+})
+
+>>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
 
 
 exports.logoutUser = catchAsyncFunction(async (req, res) => {

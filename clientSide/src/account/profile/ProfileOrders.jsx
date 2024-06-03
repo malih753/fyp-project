@@ -6,14 +6,21 @@ import TaskAltIcon from "@mui/icons-material/TaskAlt";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+<<<<<<< HEAD
 import { ServerDomain } from "../../constant/ServerDomain";
+=======
+>>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
 
 const ProfileOrder = () => {
   const [myOrder, setMyOrders] = useState([])
 
   useEffect(() => {
     const getMyOrders = async () => {
+<<<<<<< HEAD
       const response = await axios.get(`${ServerDomain}/info/getMyOrder`, {
+=======
+      const response = await axios.get("http://localhost:5000/api/v1/info/getMyOrder", {
+>>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
         withCredentials: true
       })
       setMyOrders(response.data?.info)

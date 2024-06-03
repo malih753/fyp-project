@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 const catchAsyncFun = require("../middlewares/catchAsyncFun");
 const cloudinaryUpload = require("../cloudinary");
@@ -41,3 +42,13 @@ exports.getCollections = catchAsyncFun(async (req, res) => {
     .status(200)
     .json({ message: "collections found successfully", collections });
 });
+=======
+import { Collection } from "../model/collection.model";
+
+exports.createCollection=catchAsyncFunction(async(req,res)=>{
+    const {name,image,message}=req.body
+    const newCollection=await Collection.create({name,image,message})
+    return res.status(201).json({message:"collection created successfully",newCollection})
+})
+
+>>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
