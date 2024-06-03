@@ -7,7 +7,6 @@ import Settings from '../../superadmin/Settings';
 const LabAdmin = () => {
   return (
     <div>
-      <LabHeader/>
       <Settings/>
     </div>
   )

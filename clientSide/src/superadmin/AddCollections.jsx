@@ -1,51 +1,122 @@
-import react from 'react';
-import { Form, Button } from 'react-bootstrap';
-
+import { Avatar, Box } from "@mui/material";
+import axios from "axios";
+import React, { useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import { ServerDomain } from "../constant/ServerDomain";
 
 const AddCollections = () => {
+  const [message, setMessage] = useState("");
+  const [username, setUsername] = useState("");
+  const [image, setImage] = useState(null);
+
+  const handleSubmit = async (e) => {
+    try {
+      const formData = new FormData();
+      formData.append("username", username);
+      formData.append("image", image);
+      formData.append("message", message);
+      const response = await axios.post(
+        ` ${ServerDomain}/collection/create-collection`,
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+          withCredentials: true,
+        }
+      );
+
+      console.log(response.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <div className="container justify-content-center align-items-center vh-100" style={{ marginTop: 80, backgroundColor:"" }}>
+    <div
+      className="container justify-content-center align-items-center vh-100"
+      style={{ marginTop: 80, backgroundColor: "" }}
+    >
       <div className="row justify-content-center align-items-center">
         <div className="col-md-8 col-lg-6">
-          <p className="text-center sm: mt-5" style={{ color: "#75dbd0", fontWeight: "bold", fontSize: 34, fontFamily: "cursive" }}>Add new Collection </p>
+          <p
+            className="text-center sm: mt-5"
+            style={{
+              color: "#75dbd0",
+              fontWeight: "bold",
+              fontSize: 34,
+              fontFamily: "cursive",
+            }}
+          >
+            Add new Collection{" "}
+          </p>
 
           <Form>
             <div className="row">
               <div className="col">
-                <Form.Group controlId="firstName">
-                  <Form.Label>Full Name</Form.Label>
-                  <Form.Control type="text" />
+                <Form.Group controlId="imgurl">
+                  <Box
+                    sx={{
+                      mx: "auto",
+                      width: "10rem",
+                      height: "10rem",
+                      position: "relative",
+                    }}
+                  >
+                    <Avatar
+                      sx={{
+                        mx: "auto",
+                        width: "10rem",
+                        height: "10rem",
+                        objectFit: "contain",
+                      }}
+                      src={image ? URL.createObjectURL(image) : null}
+                    />
+                    <Form.Control
+                      style={{
+                        position: "absolute",
+                        width: "10rem",
+                        height: "10rem",
+                        top: 0,
+                        opacity: 0,
+                      }}
+                      onChange={(e) => {
+                        setImage(e.target.files[0]);
+                      }}
+                      type="file"
+                    />
+                  </Box>
                 </Form.Group>
-              </div>
-              <div className="col">
-                <Form.Group controlId="slug">
-                  <Form.Label>Slug</Form.Label>
-                  <Form.Control type="text"   />
+                <Form.Group controlId="firstName">
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    type="text"
+                  />
                 </Form.Group>
               </div>
             </div>
 
-            <Form.Group controlId="imgurl">
-              <Form.Label>Image URL</Form.Label>
-              <Form.Control type="text"   />
-            </Form.Group>
-            
-            <Form.Group controlId="message" >
-              <Form.Label>Message</Form.Label>
-              <Form.Control as="textarea" rows={3}   />
-            </Form.Group>
-              
             <Form.Group controlId="message">
-    <label htmlFor="role" style={{ marginTop: "20px" }}>Add Items</label>
-    <br />
-    <select id="role" style={{ width: "100%", maxWidth: "630px", height: "40px", outline: "none", marginTop: "-5px" }}>
-        <option value="item1">Item 1</option>
-        <option value="item2">Item 2</option>
-        <option value="item3">Item 3</option>
-        </select>
-     </Form.Group>
+              <Form.Label>Message</Form.Label>
+              <Form.Control
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                as="textarea"
+                rows={3}
+              />
+            </Form.Group>
 
-            <Button variant="primary" type="add user" className="w-100 mt-4 p-2 " style={{backgroundColor:"#75DBD0",marginLeft:"-4px" }}> Add new User </Button>
+            <Button
+              variant="primary"
+              onClick={handleSubmit}
+              className="w-100 mt-4 p-2 "
+              style={{ backgroundColor: "#75DBD0", marginLeft: "-4px" }}
+            >
+              {" "}
+              Add new User{" "}
+            </Button>
           </Form>
         </div>
       </div>
@@ -53,4 +124,4 @@ const AddCollections = () => {
   );
 };
 
-export default AddCollections
+export default AddCollections;

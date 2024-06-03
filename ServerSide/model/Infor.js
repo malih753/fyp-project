@@ -1,43 +1,54 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const InfoSchema = new mongoose.Schema({
-    name:{
-        type:String
+const InfoSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
     },
-    age:{
-        type:Number
+    age: {
+      type: Number,
     },
-    gender:{
-        type:String
+    gender: {
+      type: String,
     },
-    phone_no:{
-        type:Number
+    phone_no: {
+      type: Number,
     },
-    email:{
-        type:String
+    email: {
+      type: String,
     },
-    street:{
-        type:String
+    street: {
+      type: String,
     },
-    state:{
-        type:String
+    state: {
+      type: String,
     },
-    city:{
-        type:String
+    city: {
+      type: String,
     },
-    country:{
-        type:String
+    country: {
+      type: String,
     },
-    zipcode:{
-        type:Number
+    zipcode: {
+      type: Number,
     },
-    user_id:{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"user"
-    }
+    package_name: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: String,
+      required: true,
+    },
+    user_id: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "user",
+    },
+    message: String,
+  },
+  { timestamps: true }
+);
 
-},{timestamps:true})
-
-const Info= mongoose.model('Info',InfoSchema);
+const Info = mongoose.model("Info", InfoSchema);
 
 module.exports = Info;

@@ -3,6 +3,7 @@ import axios from 'axios'; // Import Axios for making HTTP requests
 import { useNavigate } from "react-router-dom";
 
 import './register.css';
+import { ServerDomain } from '../constant/ServerDomain';
 
 const Register = () => {
   // State variables to store form input values
@@ -25,7 +26,7 @@ const Register = () => {
         email,
         password
       }
-      const response = await axios.post('http://localhost:5000/api/v1/auth/signUp', payloadData);
+      const response = await axios.post(`${ServerDomain}/auth/signUp`, payloadData);
 
       console.log(response.data); 
       // Log response data
@@ -48,11 +49,8 @@ const Register = () => {
               The Best Lab Test <br />
               <span>Offer You Can Avail</span>
             </h1>
-            <p className="mb-4 opacity-70">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Temporibus, expedita iusto veniam atque, magni tempora mollitia
-              dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-              ab ipsum nisi dolorem modi. Quos?
+            <p className="mb-4 opacity-70 justify-content-center">
+            Welcome to LABEASE, the ultimate hub for laboratories! By registering with us, you'll gain access to a seamless and efficient platform that streamlines your workflow, enhances collaboration, and amplifies your impact. Our platform offers a range of features, including easy test management, real-time results tracking, and secure data storage. Join our community of laboratories and start optimizing your operations today. Register now and take the first step towards a more connected and productive future
             </p>
           </div>
 

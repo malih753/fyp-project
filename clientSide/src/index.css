@@ -1,6 +1,6 @@
 
+
 .first {
-  max-width: 1000px;
   margin: 12px auto;
   padding: 50px 25px;
   display: flex;
@@ -98,7 +98,6 @@
   max-width: 1000px;
   margin: 50px auto;
   padding: 20px;
-/
 }
 
 .fourth .heading {
@@ -127,7 +126,8 @@
 .fifth .row-cols-1 .col {
   flex: 1;
   margin-bottom: 20px;
-} */
+}
+
 /* Responsive styles 
 @media screen and (max-width: 768px) {
   .first {

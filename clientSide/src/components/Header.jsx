@@ -1,83 +1,191 @@
-import react, { useState } from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons';
+import { useState } from "react";
 // import { MDBBtn } from 'mdb-react-ui-kit';
 // import { BsPerson } from "react-icons/bs";
-import { TbShoppingBag } from "react-icons/tb";
-import Person2OutlinedIcon from '@mui/icons-material/Person2Outlined';
-import { Link } from 'react-router-dom';
 // import logo from './../assets/LabEase Logo.png'
+import AdbIcon from "@mui/icons-material/Adb";
+import MenuIcon from "@mui/icons-material/Menu";
+import AppBar from "@mui/material/AppBar";
+import Avatar from "@mui/material/Avatar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Toolbar from "@mui/material/Toolbar";
+import Tooltip from "@mui/material/Tooltip";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
 import "./header.css";
-
+import { Link, useNavigate } from "react-router-dom";
+import { Stack } from "@mui/material";
+import profileImg from "../assets/profileImg.png";
+import { useAuth } from "../context/authContext";
+import axios from "axios";
+import { ServerDomain } from "../constant/ServerDomain";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user, logout } = useAuth();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const navigate= useNavigate()
+  const pages = [
+    {
+      title: "Home",
+      path: "/",
+    },
+    {
+      title: "Contact",
+      path: "/contact",
+    },
+    {
+      title: "About",
+      path: "/about",
+    },
+    {
+      title: "Lab Test",
+      path: "/test",
+    },
+  ];
+  const settings = [
+    { title: "Profile", path: "/profile" },
+
+    { title: "Dashboard", path: "/labadmin" },
+  ];
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  const logoutHandler = async () => {
+    try {
+      const response = await axios.get(`${ServerDomain}/auth/logout`, {
+        withCredentials: true,
+      });
+      if (response.data.success) {
+        navigate("/")
+        logout();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top" style={{ backgroundColor: '#75DBD0' }}>
-      <div className="container-fluid ">
-        <a className="navbar-brand " href="#" style={{ paddingLeft: '250px', color:'#75DBD0'}}>
-          LabEase 
-          {/* <img src={logo} alt="logo" style={{width:"530px",paddingTop:"10px",}} /> 
-                 */}
-        </a>
+    <AppBar
+      position="static"
+      sx={{ bgcolor: "#75DBD0", paddingX: "50px", paddingY: "15px" }}
+    >
+      <Container maxWidth="xl">
+        <Stack
+          direction={"row"}
+          width={"100%"}
+          alignItems={"center"}
+          spacing={4}
+          justifyContent={"space-between"}
+        >
+          <Box display={"flex"} gap={"5px"} alignItems={"center"}>
+            <AdbIcon sx={{ display: { xs: "none", md: "flex" } }} />
+            <a
+              className="navbar-brand "
+              href="#"
+              style={{
+                paddingLeft: "0",
+                color: "white",
+                fontWeight: 500,
+                fontSize: "20px",
+              }}
+            >
+              Lab Ease
+            </a>
+          </Box>
 
-        <button className="navbar-toggler" type="button" onClick={toggleMenu}>
-          <span className="navbar-toggler-icon">
-            <FontAwesomeIcon icon={faBars} />
-          </span>
-        </button>
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              gap: "40px",
+            }}
+          >
+            {pages.map((page, i) => (
+              <Link
+                style={{ color: "white" }}
+                key={i}
+                onClick={handleCloseNavMenu}
+                to={page.path}
+              >
+                {page.title}
+              </Link>
+            ))}
+          </Box>
 
-        <div className={`collapse navbar-collapse${isMenuOpen ? ' show' : ''}`} id="navbarSupportedContent">
-          <form className="d-flex">
-            <div className="input-group input-search"  >
-              <input
-                className="form-control"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              
-              />
-              <button className="btn " type="submit" style={{backgroundColor: '#75DBD0', border:"none", outline:"none"}} >
-                <FontAwesomeIcon icon={faSearch}  />
-              </button>
-            </div>
-          </form>
-          <ul className="navbar-nav mx-auto mb-2 mb-lg-0" style={{ paddingLeft: '170px' }}> 
-          <li className="nav-item">
-        <Link className="nav-link active" to="/" style={{ color: '#000' }}>Home</Link>
-      </li>
-
-      <li className="nav-item">
-        <Link className="nav-link active" to="/about" style={{ color: '#000' }}>About</Link>
-      </li>
-
-      
-      <li className="nav-item">
-        <Link className="nav-link active" to="/test" style={{ color: '#000' }}>Lab Tests </Link>
-      </li>
-
-      <li className="nav-item">
-        <Link className="nav-link active" to="/contact" style={{ color: '#000' }}>Contact Us</Link>
-      </li>
-          </ul>
-          <div className="d-flex flex-grow-1 justify-content-end">
-          <Link to ="/login">
-                   <Person2OutlinedIcon style={{ fontSize:"25px",color:"black",}} /> <span style={{color:"black", paddingBottom:"-12px"}}>Login/Sign up</span> 
-             </Link>
-                  <Link to="/cart" style={{color:"#1c1c1c"}}>
-                  <TbShoppingBag style={{ marginLeft:"12px", color:"#1c1c1c", fontSize:"20px",}} />
+          <Box>
+            <Menu
+              sx={{ mt: "45px" }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting, i) => (
+                <MenuItem key={i} onClick={handleCloseUserMenu}>
+                  <Link
+                    style={{ color: "black", fontWeight: 400 }}
+                    to={setting.path}
+                  >
+                    {setting.title}
                   </Link>
-          </div>
-        </div>
-      </div>
-    </nav>
+                </MenuItem>
+              ))}
+              <MenuItem sx={{ ":hover": { bgcolor: "transparent" } }}>
+                <Button variant="contained" onClick={logoutHandler}>Logout</Button>
+              </MenuItem>
+            </Menu>
+            {Object.keys(user).length > 0 ? (
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar
+                    style={{ width: "100px", height: "60px" }}
+                    alt="Remy Sharp"
+                    src={profileImg}
+                  />
+                </IconButton>
+              </Tooltip>
+            ) : (
+              <Link to={"/login"}>
+                <Button variant="contained" sx={{ bgcolor: "#75DBD0" }}>
+                  Login/Sign up
+                </Button>
+              </Link>
+            )}
+          </Box>
+        </Stack>
+      </Container>
+    </AppBar>
   );
 };
 
 export default Header;
-
-
-

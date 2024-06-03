@@ -1,59 +1,59 @@
-const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
-const userSchema = new mongoose.Schema({
-
+const mongoose = require("mongoose");
+const jwt = require("jsonwebtoken");
+const userSchema = new mongoose.Schema(
+  {
     firstname: {
-        type: String,
-        default: null,
+      type: String,
+      default: null,
     },
     lastname: {
-        type: String,
-        default: null,
+      type: String,
+      default: null,
     },
     Address: {
-        type: String,
+      type: String,
     },
     city: {
-        type: String,
-
+      type: String,
     },
     state: {
-        type: String,
-
+      type: String,
     },
     email: {
-        type: String,
-        required: true,
-        unique: true
+      type: String,
+      required: true,
+      unique: true,
     },
     password: {
-        type: String,
-        default: null,
-        required: true
+      type: String,
+      default: null,
+      required: true,
     },
     phone_no: {
-        type: Number,
-
+      type: Number,
     },
-    role:{
-        type:String,enum:['User','Admin','Lab User'] , default : 'User'
-    }
-},{timestamps:true});
+    role: {
+      type: String,
+      enum: ["User", "Admin", "Lab User"],
+      default: "User",
+    },
+    test_name:String
+  },
+  { timestamps: true }
+);
 
 userSchema.methods.generateAuthToken = function () {
+  return jwt.sign(
+    {
+      _id: this._id,
+    },
+    process.env.SECRET_KEY,
+    {
+      expiresIn: "2d",
+    }
+  );
+};
 
-    return jwt.sign({
-        _id: this._id
-     
-    }, process.env.SECRET_KEY,
-        {
-            expiresIn: "2d"
-        });
+const User = mongoose.model("user", userSchema);
 
-}
-
-const User = mongoose.model('user', userSchema);
-
-
-
-module.exports = User
+module.exports = User;
