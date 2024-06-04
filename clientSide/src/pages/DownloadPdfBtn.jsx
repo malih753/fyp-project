@@ -10,11 +10,7 @@ const DownloadPDFButton = () => {
 
   const fetchData = async () => {
     try {
-<<<<<<< HEAD
       const response = await axios.get(`${ServerDomain}/info/getInfo`, {
-=======
-      const response = await axios.get('http://localhost:5000/api/v1/info/getInfo', {
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
         withCredentials: true
       });
       console.log(response);

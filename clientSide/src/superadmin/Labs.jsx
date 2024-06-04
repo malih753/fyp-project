@@ -17,10 +17,7 @@ import { MDBBtn } from "mdb-react-ui-kit";
 import React, { useEffect, useState } from "react";
 import "./labs.css";
 import AddEditLabUser from "./EditLAbUser";
-<<<<<<< HEAD
 import { ServerDomain } from "../constant/ServerDomain";
-=======
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
 
 const Labs = () => {
   const [allUsers, setAllUsers] = useState([]);
@@ -33,11 +30,7 @@ const Labs = () => {
   const handleDeleteUser = async (id) => {
     try {
       const res = await axios.delete(
-<<<<<<< HEAD
         `${ServerDomain}/getNewUser/deleteLabUser/${id}`,
-=======
-        `http://localhost:5000/api/v1/getNewUser/deleteLabUser/${id}`,
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
         {
           withCredentials: true,
         }
@@ -51,11 +44,7 @@ const Labs = () => {
 
   useEffect(() => {
     axios
-<<<<<<< HEAD
       .get(`${ServerDomain}/getNewUser/getLabUsers`, {
-=======
-      .get("http://localhost:5000/api/v1/getNewUser/getLabUsers", {
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
         withCredentials: true,
       })
       .then((response) => {

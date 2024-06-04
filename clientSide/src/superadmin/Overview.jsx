@@ -7,17 +7,11 @@ import {
   MDBCardHeader,
   MDBCardTitle,
 } from "mdb-react-ui-kit";
-<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { ServerDomain } from "../constant/ServerDomain";
 import "./settings.css";
 
-=======
-import { packages } from '../constant/constant';
-import { Typography } from "@mui/material";
-import { Link } from 'react-router-dom';
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
 const Overview = () => {
   const [packages, setPackages] = useState([]);
 
@@ -40,7 +34,6 @@ const Overview = () => {
         <div className="heading">
           <h2>Frequently Booked Packages</h2>
         </div>
-<<<<<<< HEAD
         <div
           style={{
             display: "grid",
@@ -48,15 +41,10 @@ const Overview = () => {
             gap: "30px",
           }}
         >
-=======
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "30px" }}>
-
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
           {packages.map((pack) => (
             <div className="col">
               <MDBCard alignment="center">
                 <MDBCardHeader>Pakage</MDBCardHeader>
-<<<<<<< HEAD
                 <MDBCardBody
                   style={{
                     display: "flex",
@@ -80,27 +68,11 @@ const Overview = () => {
                   </Typography>
                   <Link to={`/cart/${pack.title}`}>
                     <MDBBtn className="custom-btn">Book Now</MDBBtn>
-=======
-                <MDBCardBody style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                  <MDBCardTitle>{pack.title}</MDBCardTitle>
-                  <Typography sx={{
-                    backgroundColor: "white", borderRadius: "10px", border
-                      : "1px solid black", borderColor: "black", width: "fit-content", margin: "10px 0", padding: "10px"
-                  }}>{pack.price}</Typography>
-                  <Link to={`/cart/${pack.title}`}>
-                    <MDBBtn className="custom-btn">
-                      Book Now
-                    </MDBBtn>
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
                   </Link>
                 </MDBCardBody>
               </MDBCard>
             </div>
           ))}
-<<<<<<< HEAD
-=======
-
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
         </div>
       </div>
     </div>
