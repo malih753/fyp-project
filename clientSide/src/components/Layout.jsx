@@ -29,11 +29,7 @@ const Layout = () => {
   const {user}=useAuth()
   const handleClick=(title)=>{
     console.log("user",user)
-<<<<<<< HEAD
     if(Object.keys(user).length>0){
-=======
-    if(Object.keys(user).length>=0){
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
       navigate(`/cart/${title}`)
     }
     else{

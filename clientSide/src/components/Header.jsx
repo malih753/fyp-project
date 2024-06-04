@@ -17,51 +17,24 @@ import Tooltip from "@mui/material/Tooltip";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 import "./header.css";
-<<<<<<< HEAD
 import { Link, useNavigate } from "react-router-dom";
 import { Stack } from "@mui/material";
 import profileImg from "../assets/profileImg.png";
 import { useAuth } from "../context/authContext";
 import axios from "axios";
 import { ServerDomain } from "../constant/ServerDomain";
-=======
-import { Link } from "react-router-dom";
-import { Stack } from "@mui/material";
-import profileImg from '../assets/profileImg.png'
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logout } = useAuth();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  const pages = [
-    {
-      title: "Home",
-      path: "/",
-    },
-    {
-      title: "Contact",
-      path: "/contact",
-    },
-    {
-      title: "About",
-      path: "/about",
-    },
-    {
-      title: "Lab Test",
-      path: "/test",
-    },
-  ];
-  const settings = [
-    { title: "Profile", path: "/profile" },
-    { title: "Account", path: "/" },
-    { title: "Dashboard", path: "/labadmin" },
-  ];
+  
+   
+  
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-<<<<<<< HEAD
   const navigate= useNavigate()
   const pages = [
     {
@@ -86,18 +59,13 @@ const Header = () => {
 
     { title: "Dashboard", path: "/labadmin" },
   ];
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
-
-=======
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
+  
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-<<<<<<< HEAD
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
@@ -122,19 +90,6 @@ const Header = () => {
   };
 
   return (
-=======
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
-  return (
-
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
     <AppBar
       position="static"
       sx={{ bgcolor: "#75DBD0", paddingX: "50px", paddingY: "15px" }}
@@ -169,11 +124,7 @@ const Header = () => {
               gap: "40px",
             }}
           >
-<<<<<<< HEAD
             {pages.map((page, i) => (
-=======
-            {pages.map((page,i) => (
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
               <Link
                 style={{ color: "white" }}
                 key={i}
@@ -202,11 +153,7 @@ const Header = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-<<<<<<< HEAD
               {settings.map((setting, i) => (
-=======
-              {settings.map((setting,i) => (
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
                 <MenuItem key={i} onClick={handleCloseUserMenu}>
                   <Link
                     style={{ color: "black", fontWeight: 400 }}
@@ -216,7 +163,6 @@ const Header = () => {
                   </Link>
                 </MenuItem>
               ))}
-<<<<<<< HEAD
               <MenuItem sx={{ ":hover": { bgcolor: "transparent" } }}>
                 <Button variant="contained" onClick={logoutHandler}>Logout</Button>
               </MenuItem>
@@ -238,17 +184,6 @@ const Header = () => {
                 </Button>
               </Link>
             )}
-=======
-             <MenuItem sx={{":hover":{bgcolor:"transparent"}}}>
-             <Button variant="contained">Logout</Button>
-             </MenuItem>
-            </Menu>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{p:0}}>
-                <Avatar style={{width:"100px",height:"60px"}} alt="Remy Sharp" src={profileImg} />
-              </IconButton>
-            </Tooltip>
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
           </Box>
         </Stack>
       </Container>
