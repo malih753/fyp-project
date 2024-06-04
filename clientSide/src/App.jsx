@@ -38,26 +38,16 @@ import AddNewLab from "./superadmin/AddNewLab";
 import Header from "./components/Header";
 import { AuthContextProvider, useAuth } from "./context/authContext";
 import axios from "axios";
-<<<<<<< HEAD
 import { ServerDomain } from "./constant/ServerDomain";
-=======
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
 
 const App = () => {
    const {login,user}=useAuth()
 
   useEffect(() => {
     const fetchUser = async () => {
-<<<<<<< HEAD
       const response = await axios.get(`${ServerDomain}/auth/my_profile`, {
         withCredentials: true
       })
-=======
-      const response = await axios.get("http://localhost:5000/api/v1/auth/my_profile", {
-        withCredentials: true
-      })
-
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
       login(response.data?.user)
     }
     fetchUser()
@@ -74,11 +64,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/test" element={<LabTest />} />
-<<<<<<< HEAD
         
-=======
-          <Route path="/profile" element={<Profile />} />
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
           <Route path="/cart/:name" element={<Cart />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
@@ -94,10 +80,7 @@ const App = () => {
             <Route path="/inbox" element={<Inbox />} />
             <Route path="/labs" element={<Labs />} />
             <Route path="/addUser" element={<AddUser />} />
-<<<<<<< HEAD
             <Route path="/profile" element={<Profile />} />
-=======
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
           </Route>
 
 
@@ -139,12 +122,4 @@ const App = () => {
 }
 
 export default App;
-/*
- <Link to ="/cart">
-                 <p style={{marginRight:"50px", paddingRight:"30px"}}>Login/Sign up <BsPerson/> </p>
-             </Link>
-                  <Link to="/profile">
-                  <p style={{paddingLeft:"40px"}}> <BsPerson/> </p>
-                  </Link>
-
-*/ 
+ 
