@@ -17,12 +17,14 @@ import "./cart.css";
 import DownloadPDFButton from "../pages/DownloadPdfBtn";
 import { useParams } from "react-router-dom";
 import { packages } from "../constant/constant";
-import { Stack, TextareaAutosize } from "@mui/material";
+import { Stack, TextareaAutosize, Typography } from "@mui/material";
 import { ServerDomain } from "../constant/ServerDomain";
 import { loadStripe } from "@stripe/stripe-js";
-
+ 
 const Cart = () => {
   const [selectedOption, setSelectedOptions] = useState("");
+  const [data,setData]=useState('');
+  const [price,setPrice]=useState('');
   const params = useParams();
   const { name } = params;
   const [details, setDetails] = useState({});
@@ -59,7 +61,16 @@ const Cart = () => {
       package_name: detail?.title,
       price: detail?.price.split(" ").pop(),
     });
-    
+    const packageName =axios
+    .get(`${ServerDomain}/info/getTopSellingInfos`, {
+      withCredentials: true,
+    })
+    .then((response) => {
+      console.log(response.data.package[0].title);
+      setData(response.data.package[0].title);
+      setPrice(response.data.package[0].price);
+
+    })
   }, [name]);
 
   const handleSubmit = async (e) => {
@@ -172,53 +183,8 @@ const Cart = () => {
           </div>
           <div className="left-two">
             <div className="two-div-left">
-              <div>
-                <img
-                  src={img}
-                  alt="img"
-                  style={{
-                    width: "126px",
-                    height: "129px",
-                    borderRadius: "95px",
-                    marginTop: "30px",
-                  }}
-                />
-              </div>
-              <div className="two-div-left-text">
-                <Stack direction={"row"} spacing={2} alignItems={"center"}>
-                  <h5>Healthy 2024 Full Body Check up </h5>
-                  <MdDelete
-                    style={{
-                      paddingLeft: "5px",
-                      marginLeft: "20px",
-                      fontSize: "25px",
-                      cursor: "pointer",
-                    }}
-                  />
-                </Stack>
-
-                <p style={{ color: "grey" }}>Lab: CITI Lab </p>
-                <h5>PKR 1500.0</h5>
-                <p
-                  style={{
-                    boxShadow:
-                      " 0 4px 8px 0 rgba(5, 4, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
-                    borderRadius: "10px",
-                    width: "170px",
-                    padding: "9px",
-                  }}
-                >
-                  {" "}
-                  <MdOutlineWatchLater
-                    style={{
-                      paddingRight: "2px",
-                      fontSize: "25px",
-                      marginTop: "-3px",
-                    }}
-                  />
-                  Report in 15 hrs.{" "}
-                </p>
-              </div>
+              <Typography>{data}</Typography>
+              <Typography>{price}</Typography>
             </div>
           </div>
           <div className="left-three">

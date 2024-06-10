@@ -12,19 +12,11 @@ const IsAuthenticated = async (req, res, next) => {
                 message: "Unauthorized request"
             })
         }
-<<<<<<< HEAD
         // console.log(token)
 
 
         const decode = jwt.verify(token, process.env.SECRET_KEY)
         // console.log(decode)
-=======
-        console.log(token)
-
-
-        const decode = jwt.verify(token, process.env.SECRET_KEY)
-        console.log(decode)
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
 
         if (!decode) {
 
@@ -41,11 +33,7 @@ const IsAuthenticated = async (req, res, next) => {
                 message: "Unauthroized request"
             })
         }
-<<<<<<< HEAD
         // console.log(user)
-=======
-        console.log(user)
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
 
         req.user = user
         next()

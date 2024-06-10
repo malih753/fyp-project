@@ -10,7 +10,7 @@ const cookieParser = require("cookie-parser")
 require('dotenv').config()
 const dbConfig = require('./DBconnection')
 const PORT = process.env.PORT || 2000;
-const corsOptions = { origin: process.env.URL || 'http://localhost:5173',credentials:true };
+const corsOptions = { origin:['https://fyp-project-beta.vercel.app','http://localhost:5173'],credentials:true };
 const app = express()
 app.use(express.json())
 app.use(cors(corsOptions));

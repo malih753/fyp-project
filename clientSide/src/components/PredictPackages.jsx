@@ -37,7 +37,7 @@ const PredictPackages = () => {
         <div className="col-lg-6 col-md-8">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title text-center mb-4">Symptom Checker</h2>
+              <h2 className="card-title text-center mb-4">Test Suggestion</h2>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="symptom" className="form-label">Symptom:</label>

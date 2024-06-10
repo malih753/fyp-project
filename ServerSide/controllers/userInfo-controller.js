@@ -4,7 +4,6 @@ const catchAsyncFunction = require("../middlewares/catchAsyncFun");
 const InfoModel = require("../model/Infor");
 
 exports.Info = catchAsyncFunction(async (req, res) => {
-<<<<<<< HEAD
   try {
     const user_id = req.user._id;
     // console.log(user_id)
@@ -53,53 +52,6 @@ const {product} = req.body
       .status(500)
       .json({ message: "Internal server error", error: error.message });
   }
-=======
-
-    try {
-
-        const user_id = req.user._id
-        // console.log(user_id)
-
-        const {
-            name,
-            age,
-            gender,
-            phone_no,
-            email,
-            street,
-            state,
-            city,
-            country,
-            zipcode,
-            package_name,
-            price
-        } = req.body;
-
-        console.log("package name", package_name)
-        console.log("price", price)
-        // Create user in MongoDB
-        const newInfo = await InfoModel.create({
-            name,
-            age,
-            gender,
-            phone_no,
-            email,
-            street,
-            state,
-            city,
-            country,
-            zipcode,
-            user_id,
-            package_name,
-            price
-        });
-
-        return res.status(201).json({ message: "Info created successfully", newInfo })
-
-    } catch (error) {
-        res.status(500).send({ message: "Internal server error", error: error.message });
-    }
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
 });
 
 exports.getInfo = catchAsyncFunction(async (req, res) => {
@@ -134,7 +86,6 @@ exports.getMyOrders = catchAsyncFunction(async (req, res) => {
   }
 });
 
-<<<<<<< HEAD
 exports.getTopSellingPackages = catchAsyncFunction(async (req, res) => {
   const packages = await InfoModel.aggregate([
     {
@@ -203,20 +154,3 @@ exports.getMessages = catchAsyncFunction(async (req, res) => {
     success: true,
   });
 });
-=======
-exports.getMyOrders = catchAsyncFunction(async (req, res) => {
-    try {
-
-        console.log(req.user)
-        const userId = req.user._id;
-        const info = await InfoModel.find({ user_id: userId })
-
-        return res.status(200).json({ message: "info found successfully", info, success: true });
-
-    } catch (e) {
-
-        res.status(500).json({ message: e.message });
-        console.log('error', e);
-    }
-})
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17

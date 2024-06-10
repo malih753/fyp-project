@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const express = require("express");
 const IsAuthenticated = require("../middlewares/authMiddleWare");
 const isAdmin = require("../middlewares/LabAdmin");
@@ -23,10 +22,3 @@ router.get(
 );
 
 module.exports = router;
-=======
-const express =require('express');
-
-
-const router= express.Router();
-
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17

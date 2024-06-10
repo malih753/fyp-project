@@ -46,23 +46,14 @@
   .main-d{
     /* background-color: #f4f5f7; */
     height: 1000px;
-<<<<<<< HEAD
     width: 1200px;
     margin:0 auto;
    justify-content: center;
-=======
-    margin-left: 200px;
-    width: 1300px;
-    justify-items: center;
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
    
     /* padding-top: 20px; */
     margin-top: 4px;
     display: flex;
-<<<<<<< HEAD
      
-=======
->>>>>>> e1e9f24fd29144aa73500ecddc394fd783053d17
   }
 
 
@@ -70,7 +61,7 @@
  .left-one{
     margin-top: 30px;
       width: 95%;
-      height: 120px;
+      height: 150px;
       margin-left: 10px;
       background-color: #f4f5f7;
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
