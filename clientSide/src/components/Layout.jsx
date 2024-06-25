@@ -1,4 +1,4 @@
-import react from "react";
+import react, { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 import HomePageTest from "./../assets/HomePageTest.png";
@@ -23,29 +23,46 @@ import "./layout.css";
 import { packages } from "../constant/constant";
 import { Typography } from "@mui/material";
 import { useAuth } from "../context/authContext";
+import axios from "axios";
+import { ServerDomain } from "../constant/ServerDomain";
 
 const Layout = () => {
-  const navigate=useNavigate()
-  const {user}=useAuth()
-  const handleClick=(title)=>{
-    console.log("user",user)
-    if(Object.keys(user).length>0){
-      navigate(`/cart/${title}`)
+  const [frequentPackages, setFrequentPackages] = useState([]);
+
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const handleClick = (title) => {
+    console.log("user", user);
+    if (Object.keys(user).length > 0) {
+      navigate(`/cart/${title}`);
+    } else {
+      navigate("/login");
     }
-    else{
-      navigate('/login')
-    }
-  }
+  };
+
+  useEffect(() => {
+    axios
+      .get(`${ServerDomain}/info/getTopSellingInfos`, {
+        withCredentials: true,
+      })
+      .then((response) => {
+        console.log(response.data);
+        setFrequentPackages(response.data.package);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
   return (
     <div>
       <main className="homePage">
         <div className="first">
           <div className="left-home-side">
             <div className="left-heading">
-              <h2>LabEase - Your path to Healthier Living.</h2>
+              <h2 id="title">LabEase - Your path to Healthier Living.</h2>
             </div>
             <div className="left-txt">
-              <p>
+              <p id="hero-paragraph">
                 Streamlining Laboratory Services for your convenience by your
                 choice and wish
               </p>
@@ -88,7 +105,10 @@ const Layout = () => {
                   padding: 10,
                 }}
               >
-                <span style={{ fontWeight: "bold", fontSize: 18 }}>
+                <span
+                  className="packages-category"
+                  style={{ fontWeight: "bold", fontSize: 18 }}
+                >
                   {" "}
                   Health packages
                 </span>
@@ -107,7 +127,10 @@ const Layout = () => {
                   padding: 10,
                 }}
               >
-                <span style={{ fontWeight: "bold", fontSize: 18 }}>
+                <span
+                  className="packages-category"
+                  style={{ fontWeight: "bold", fontSize: 18 }}
+                >
                   Recent Packages
                 </span>
               </div>
@@ -125,7 +148,10 @@ const Layout = () => {
                   padding: 10,
                 }}
               >
-                <span style={{ fontWeight: "bold", fontSize: 18 }}>
+                <span
+                  className="packages-category"
+                  style={{ fontWeight: "bold", fontSize: 18 }}
+                >
                   Upload Data
                 </span>
               </div>
@@ -143,7 +169,10 @@ const Layout = () => {
                   padding: 10,
                 }}
               >
-                <span style={{ fontWeight: "bold", fontSize: 18 }}>
+                <span
+                  className="packages-category"
+                  style={{ fontWeight: "bold", fontSize: 18 }}
+                >
                   Recall for Now
                 </span>
               </div>
@@ -177,7 +206,7 @@ const Layout = () => {
                 src={lightbox3}
                 alt="c"
                 className=" rounded-lg"
-                style={{  width: 230, height: 202, borderRadius: 25 }}
+                style={{ width: 230, height: 202, borderRadius: 25 }}
               />
             </div>
             <div className="col-6 col-md-3 mb-4">
@@ -185,7 +214,7 @@ const Layout = () => {
                 src={lightbox4}
                 alt="d"
                 className=" rounded-lg"
-                style={{  width: 230, height: 202, borderRadius: 25 }}
+                style={{ width: 230, height: 202, borderRadius: 25 }}
               />
             </div>
           </div>
@@ -195,68 +224,99 @@ const Layout = () => {
           <div className="heading">
             <h2>Frequently Booked Packages</h2>
           </div>
-          <div style={{display:"grid", gridTemplateColumns:"repeat(3, 1fr)", gap:"30px"}}>
-
+          <div
+            className="packages-wrapper"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "30px",
+            }}
+          >
             {packages.map((pack) => (
               <div className="col">
                 <MDBCard alignment="center">
                   <MDBCardHeader>Pakage</MDBCardHeader>
-                  <MDBCardBody style={{display:"flex",flexDirection:"column",alignItems:"center"}}>
+                  <MDBCardBody
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
                     <MDBCardTitle>{pack.title}</MDBCardTitle>
-                    <Typography sx={{backgroundColor:"white",borderRadius:"10px",border
-                    : "1px solid black",borderColor:"black",width:"fit-content",margin:"10px 0",padding:"10px"}}>{pack.price}</Typography>
-                    <MDBBtn  className="custom-btn" onClick={() =>handleClick(pack.title)}>
+                    <Typography
+                      sx={{
+                        backgroundColor: "white",
+                        borderRadius: "10px",
+                        border: "1px solid black",
+                        borderColor: "black",
+                        width: "fit-content",
+                        margin: "10px 0",
+                        padding: "10px",
+                      }}
+                    >
+                      {pack.price}
+                    </Typography>
+                    <MDBBtn
+                      className="custom-btn"
+                      onClick={() => handleClick(pack.title)}
+                    >
                       Book Now
                     </MDBBtn>
                   </MDBCardBody>
                 </MDBCard>
               </div>
             ))}
-            
           </div>
-          
-
-           
         </div>
         <div className="fifth">
           <div className="heading">
             <h2>Frequently Booked Tests</h2>
           </div>
 
-          <div className="row row-cols-1 row-cols-md-3 g-4">
-            <div className="col">
-              <MDBCard alignment="center">
-                <MDBCardHeader>Pakage</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle>Advance Renal Pakage</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn">
-                    Book Now
-                  </MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
-            </div>
-            <div className="col">
-              <MDBCard alignment="center">
-                <MDBCardHeader>Pakage</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle> Arterial blood gas test</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn">
-                    Book Now
-                  </MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
-            </div>
-            <div className="col">
-              <MDBCard alignment="center">
-                <MDBCardHeader>Pakage</MDBCardHeader>
-                <MDBCardBody>
-                  <MDBCardTitle> Chloride blood test</MDBCardTitle>
-                  <MDBBtn href="#" className="custom-btn">
-                    Book Now
-                  </MDBBtn>
-                </MDBCardBody>
-              </MDBCard>
-            </div>
+          <div
+            className="packages-wrapper"
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(3, 1fr)",
+              gap: "30px",
+            }}
+          >
+            {frequentPackages.map((pack) => (
+              <div className="col">
+                <MDBCard alignment="center">
+                  <MDBCardHeader>Pakage</MDBCardHeader>
+                  <MDBCardBody
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                    }}
+                  >
+                    <MDBCardTitle>{pack.title}</MDBCardTitle>
+                    <Typography
+                      sx={{
+                        backgroundColor: "white",
+                        borderRadius: "10px",
+                        border: "1px solid black",
+                        borderColor: "black",
+                        width: "fit-content",
+                        margin: "10px 0",
+                        padding: "10px",
+                      }}
+                    >
+                      {pack.price}
+                    </Typography>
+                    <MDBBtn
+                      className="custom-btn"
+                      onClick={() => handleClick(pack.title)}
+                    >
+                      Book Now
+                    </MDBBtn>
+                  </MDBCardBody>
+                </MDBCard>
+              </div>
+            ))}
           </div>
         </div>
       </main>

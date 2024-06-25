@@ -1,7 +1,5 @@
 import { useState } from "react";
-// import { MDBBtn } from 'mdb-react-ui-kit';
-// import { BsPerson } from "react-icons/bs";
-// import logo from './../assets/LabEase Logo.png'
+
 import AdbIcon from "@mui/icons-material/Adb";
 import MenuIcon from "@mui/icons-material/Menu";
 import AppBar from "@mui/material/AppBar";
@@ -23,19 +21,19 @@ import profileImg from "../assets/profileImg.png";
 import { useAuth } from "../context/authContext";
 import axios from "axios";
 import { ServerDomain } from "../constant/ServerDomain";
+import { IoCloseOutline, IoCloseSharp } from "react-icons/io5";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const { user, logout } = useAuth();
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-  
-   
-  
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const navigate= useNavigate()
+  const navigate = useNavigate();
   const pages = [
     {
       title: "Home",
@@ -59,7 +57,7 @@ const Header = () => {
 
     { title: "Dashboard", path: "/labadmin" },
   ];
-  
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -81,7 +79,7 @@ const Header = () => {
         withCredentials: true,
       });
       if (response.data.success) {
-        navigate("/")
+        navigate("/");
         logout();
       }
     } catch (error) {
@@ -92,7 +90,11 @@ const Header = () => {
   return (
     <AppBar
       position="static"
-      sx={{ bgcolor: "#75DBD0", paddingX: "50px", paddingY: "15px" }}
+      sx={{
+        bgcolor: "#75DBD0",
+        paddingX: { sm: "50px", xs: "10px" },
+        paddingY: "15px",
+      }}
     >
       <Container maxWidth="xl">
         <Stack
@@ -120,18 +122,41 @@ const Header = () => {
 
           <Box
             sx={{
-              display: { xs: "none", md: "flex" },
-              gap: "40px",
+              display: "flex",
+              position: { sm: "static", xs: "absolute" },
+              left: isOpen ? "0" : "-100%",
+              transition: "0.3s",
+              top: "0px",
+              height: { sm: "auto", xs: "100vh" },
+              width: { sm: "auto", xs: "60%" },
+              backgroundColor: { sm: "transparent", xs: "white" },
+              gap: { sm: "40px", xs: "20px" },
+              alignItems: { sm: "center", xs: "flex-start" },
+              flexDirection: { sm: "row", xs: "column" },
+              padding: { sm: "0", xs: "30px 20px" },
+              zIndex: 9999,
             }}
+            style={{ marginLeft: 0 }}
           >
+            <Box onClick={() => setIsOpen(false)} sx={{ display: { sm: "none", xs: "block" } }}>
+              <IoCloseSharp
+                color="black"
+                fontSize={"30px"}
+                style={{
+                  position: "absolute",
+                  right: 20,
+                  top: 20,
+                }}
+              />
+            </Box>
             {pages.map((page, i) => (
-              <Link
-                style={{ color: "white" }}
-                key={i}
-                onClick={handleCloseNavMenu}
-                to={page.path}
-              >
-                {page.title}
+              <Link key={i} onClick={handleCloseNavMenu} to={page.path}>
+                <Typography
+                  sx={{ color: { sm: "white", xs: "#212121" } }}
+                  style={{ margin: 0, paddingTop: 0 }}
+                >
+                  {page.title}
+                </Typography>
               </Link>
             ))}
           </Box>
@@ -164,7 +189,9 @@ const Header = () => {
                 </MenuItem>
               ))}
               <MenuItem sx={{ ":hover": { bgcolor: "transparent" } }}>
-                <Button variant="contained" onClick={logoutHandler}>Logout</Button>
+                <Button variant="contained" onClick={logoutHandler}>
+                  Logout
+                </Button>
               </MenuItem>
             </Menu>
             {Object.keys(user).length > 0 ? (
@@ -184,6 +211,11 @@ const Header = () => {
                 </Button>
               </Link>
             )}
+            <MenuIcon
+              sx={{ display: { sm: "none", xs: "inline-block" } }}
+              fontSize="large"
+              onClick={() => setIsOpen(true)}
+            />
           </Box>
         </Stack>
       </Container>

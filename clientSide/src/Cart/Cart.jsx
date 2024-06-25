@@ -115,7 +115,7 @@ const Cart = () => {
   return (
     <div>
       <div className="cart-heading">
-        <h4 style={{ paddingLeft: "210px" }}>Cart</h4>
+        <h4  >Cart</h4>
 
         <div className="stepper">
           <p className="stepper-button">
@@ -292,6 +292,7 @@ const Cart = () => {
           </div>
           <form onSubmit={handleSubmit}>
             <div
+             
               style={{
                 display: "flex",
                 justifyContent: "space-evenly",
@@ -300,16 +301,18 @@ const Cart = () => {
             >
               <div>
                 <span
+                  
                   style={{
                     color: "#75dbd0",
                     marginLeft: 9,
                     fontWeight: "bold",
                   }}
                 >
-                  Name{" "}
+                  Name 
                 </span>
                 <br></br>
                 <input
+             
                   type="text"
                   name="name"
                   value={formData.name}
@@ -339,7 +342,7 @@ const Cart = () => {
                 />
               </div>
             </div>
-            <div>
+            <div  >
               <span
                 style={{
                   color: "#75dbd0",
@@ -352,10 +355,11 @@ const Cart = () => {
               </span>
               <br></br>
               <select
+             
                 name="gender"
                 value={formData.gender}
                 onChange={handleChange}
-                style={{
+                sx={{
                   marginLeft: 80,
                   width: 540,
                   height: 40,
@@ -644,6 +648,7 @@ const Cart = () => {
 
             <button
               type="submit"
+              className="btn"
               style={{
                 width: 540,
                 backgroundColor: "#75dbd0",

@@ -16,13 +16,14 @@ const About = () => {
           <ul className="text-justify">
             LabEase is a comprehensive web-based platform designed to streamline access to laboratory services for patients. It simplifies the process of finding, comparing, and scheduling lab tests. The platform centralizes information on tests, prices, appointments, and results, making it easier for users to make informed healthcare decisions. With modules like test information, appointment scheduling, result display, and user feedback, LabEase aims to enhance the patient experience, save time, and improve the overall efficiency of healthcare services.
             Centralize Information: Provide a single platform where patients can access comprehensive information about various lab tests, including prices, descriptions, and instructions
-            Facilitate Comparison: Enable users to compare prices among different laboratories and make informed decisions regarding their healthcare needs
+            Facilitate Comparison.
+            <br></br>
+
+            <br></br>
+             Enable users to compare prices among different laboratories and make informed decisions regarding their healthcare needs
             Streamline Appointments: Offer an easy-to-use appointment module, allowing patients to schedule tests hassle-free
-            Efficient Result Delivery: Display test results directly on the platform once processed, ensuring timely access for patients
-            Enhance User Experience: Implement modules for user feedback, testimonials, and notifications to continuously improve the system and build trust among users
-            Streamline Appointments: Offer an easy-to-use appointment module, allowing patients to schedule tests hassle-free
-            Efficient Result Delivery: Display test results directly on the platform once processed, ensuring timely access for patients
-            Enhance User Experience: Implement modules for user feedback, testimonials, and notifications to continuously improve the system and build trust among users
+            Efficient Result Delivery: Display test results directly on the platform once processed, ensuring timely access for patient.
+            
           </ul>
         </div>
       </div>

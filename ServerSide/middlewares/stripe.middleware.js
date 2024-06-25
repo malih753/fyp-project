@@ -9,7 +9,7 @@ const stripeController = catchAsyncFun(async (req, res, next) => {
     const lineItems = [
       {
         price_data: {
-          currency: "usd",
+          currency: "Pkr",
           product_data: {
             name: product?.package_name,
           },

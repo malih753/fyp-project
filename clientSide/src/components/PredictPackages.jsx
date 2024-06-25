@@ -37,19 +37,19 @@ const PredictPackages = () => {
         <div className="col-lg-6 col-md-8">
           <div className="card">
             <div className="card-body">
-              <h2 className="card-title text-center mb-4">Test Suggestion</h2>
+              <h2 className="card-title text-center mb-4">Test Suggestion or Symptoms checker</h2>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
                   <label htmlFor="symptom" className="form-label">Symptom:</label>
                   <input type="text" id="symptom" className="form-control" value={symptom} onChange={handleChange} />
                 </div> 
                 <div className="text-center">
-                  <button type="submit" className="btn btn-primary">Check Symptoms</button>
+                  <button type="submit" className="btn btn-primary">Submit</button>
                 </div>
               </form>
               {recommendedTest && (
                 <div>
-                  <h3 className="text-center mt-4">Recommended Test:</h3>
+                  
                   <p className="text-center">{recommendedTest}</p>
                   <div className="text-center">
                     <button className="btn btn-primary">Book Now</button>

@@ -34,7 +34,7 @@ exports.login = catchAsyncFunction(async (req, res) => {
     res.status(500).json({ message: "Internal server error", success: false });
   }
 });
-
+ 
 exports.signUp = catchAsyncFunction(async (req, res) => {
   console.log("log request", req.body);
   try {

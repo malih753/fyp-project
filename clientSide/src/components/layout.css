@@ -196,3 +196,37 @@
   
   
   
+  @media (max-width:600px) {
+    .left-btn{
+      justify-content: center;
+    }
+    .left-btn button{
+      font-size: 12px;
+      margin: 0;
+      white-space: nowrap;
+    }
+    .left-home-side .left-txt{
+      font-size: 14px;
+      text-align: center;
+     
+    }
+    .first{
+      margin: 0;
+      padding: 0 10px;
+      height: auto;
+    }
+    .order-heading p{
+      padding-left: 0;
+    }
+    .left-home-side .left-txt{
+      margin-left: 0;
+    }
+    #hero-paragraph{
+      padding-left: 0;
+      font-size: 15px;
+    }
+    #title{
+      font-size: 26px;
+    }
+  
+  }

@@ -1,12 +1,9 @@
-
-
 .first {
   margin: 12px auto;
   padding: 50px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
- 
 }
 
 .left-home-side {
@@ -42,14 +39,12 @@
   height: auto;
 }
 
-
 .second {
   max-width: 1000px;
   margin: 0 auto;
   padding: 13px 20px;
   display: flex;
   justify-content: space-around;
-
 }
 
 .Tooltip {
@@ -58,7 +53,6 @@
   width: 100%;
 }
 
-
 .third {
   max-width: 1000px;
   margin: 0 auto;
@@ -66,7 +60,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-
 }
 
 .lightbox {
@@ -77,22 +70,26 @@
 }
 
 .lightbox > div {
-  width: calc(25% - 20px); 
+  width: calc(25% - 20px);
 }
 
-.a, .b, .c, .d {
+.a,
+.b,
+.c,
+.d {
   width: 100%;
   max-width: 230px;
   height: 220px;
 }
 
-.a img, .b img, .c img, .d img {
+.a img,
+.b img,
+.c img,
+.d img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
-
 
 .fourth {
   max-width: 1000px;
@@ -110,12 +107,10 @@
   margin-bottom: 20px;
 }
 
-
 .fifth {
   max-width: 1000px;
   margin: 50px auto;
   padding: 20px;
-
 }
 
 .fifth .heading {
@@ -164,3 +159,62 @@
 }
 
  */
+
+@media (max-width: 600px) {
+  .first {
+    height: auto;
+    margin: 0 0;
+    padding: 0px 10px 0 10px;
+  }
+  .left-home-side {
+    padding-right: 0;
+    padding-top: 40px;
+  }
+  .right-home-side img {
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+  }
+  .row-cols-1 .col {
+    padding: 0;
+    width: auto;
+  }
+  .packages-category {
+    font-size: 14px !important;
+  }
+  .row {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .row img{
+    width: 100% !important;
+    height: auto !important;
+    padding: 0 !important;
+    object-fit: cover !important;
+  }
+  .col-6{
+    width: 100%;
+    padding: 0 !important;
+  }
+  .packages-wrapper{
+    grid-template-columns: 1fr !important;
+  }
+  .btn{
+    margin-left: 0;
+  }
+  .fourth{
+    margin: 0;
+    padding: 10px;
+  }
+  .fifth{
+    margin: 0;
+    padding: 10px;
+  }
+  .fifth .heading h2{
+    font-size: 22px;
+  }
+  .order-heading h3, p{
+    padding-left: 0;
+  }
+}

@@ -55,7 +55,7 @@ const App = () => {
 
   return (
     <>
-      <div>
+      <div style={{overflow:"hidden"}}>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
