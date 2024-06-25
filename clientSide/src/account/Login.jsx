@@ -106,7 +106,7 @@ const Login = () => {
                     </div>
                     <button
                       className="btn btn-primary btn-lg btn-block custom-button"
-                      type="submit"
+                      type="Submit"
                     >
                       Login
                     </button>
@@ -120,6 +120,7 @@ const Login = () => {
                     <button
                       type="button"
                       className="btn btn-link btn-floating mx-1"
+                      
                     >
                       <i className="fab fa-facebook-f"></i>
                     </button>

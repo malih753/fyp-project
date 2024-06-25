@@ -9,7 +9,7 @@ const cookieParser = require("cookie-parser")
 
 require('dotenv').config()
 const dbConfig = require('./DBconnection')
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 9000;
 const corsOptions = { origin:['https://fyp-project-beta.vercel.app','http://localhost:5173'],credentials:true };
 const app = express()
 app.use(express.json())

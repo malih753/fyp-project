@@ -70,7 +70,7 @@ const Layout = () => {
             <div className="left-btn" style={{ display: "flex", gap: "10px" }}>
               <MDBBtn className="me-1" style={{ backgroundColor: "#75DBD0" }}>
                 <Link to="/predictPackages" style={{ color: "white" }}>
-                  Get Started{" "}
+                  Get STARTED{" "}
                   <MDBIcon fas icon="arrow-right" className="ms-1" />
                 </Link>
               </MDBBtn>

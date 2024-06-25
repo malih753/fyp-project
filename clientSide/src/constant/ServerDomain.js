@@ -1,1 +1,1 @@
-export const ServerDomain = "http://localhost:5000/api/v1"
+export const ServerDomain = "http://localhost:9000/api/v1"
